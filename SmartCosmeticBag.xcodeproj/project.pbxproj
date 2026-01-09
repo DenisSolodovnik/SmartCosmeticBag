@@ -27,7 +27,9 @@
 		F37B55892F0D283200242124 /* SmartCosmeticBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCosmeticBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F37B55BA2F0D34A800242124 /* CosmeticModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticModule; path = Modules/CosmeticModule; sourceTree = "<group>"; };
+		F37B56C92F11541C00242124 /* CosmeticModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticModule; path = Modules/CosmeticModule; sourceTree = "<group>"; };
+		F37B56CB2F115B2800242124 /* AppSettingsModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppSettingsModule; path = Modules/AppSettingsModule; sourceTree = "<group>"; };
+		F37B56CC2F115B7400242124 /* DataPoolModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataPoolModule; path = Modules/DataPoolModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -66,7 +68,9 @@
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
-				F37B55BA2F0D34A800242124 /* CosmeticModule */,
+				F37B56CC2F115B7400242124 /* DataPoolModule */,
+				F37B56CB2F115B2800242124 /* AppSettingsModule */,
+				F37B56C92F11541C00242124 /* CosmeticModule */,
 				F37B558B2F0D283200242124 /* SmartCosmeticBag */,
 				F37B558A2F0D283200242124 /* Products */,
 			);

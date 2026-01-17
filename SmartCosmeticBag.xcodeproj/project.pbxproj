@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F37B57002F14135100242124 /* CosmeticModule in Frameworks */ = {isa = PBXBuildFile; productRef = F37B56FF2F14135100242124 /* CosmeticModule */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F37B559C2F0D283400242124 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -28,13 +32,44 @@
 		F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B56C92F11541C00242124 /* CosmeticModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticModule; path = Modules/CosmeticModule; sourceTree = "<group>"; };
-		F37B56CB2F115B2800242124 /* AppSettingsModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppSettingsModule; path = Modules/AppSettingsModule; sourceTree = "<group>"; };
 		F37B56CC2F115B7400242124 /* DataPoolModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataPoolModule; path = Modules/DataPoolModule; sourceTree = "<group>"; };
+		F37B56E32F1401D300242124 /* AppConfigurationModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppConfigurationModule; path = Modules/AppConfigurationModule; sourceTree = "<group>"; };
+		F37B57012F14179A00242124 /* DesignModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignModule; path = Modules/DesignModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F37B57042F14DEA000242124 /* Exceptions for "SmartCosmeticBag" folder in "SmartCosmeticBag" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Persistence.swift,
+				SmartCosmeticBagApp.swift,
+			);
+			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
+		};
+		F37B57052F14DEA300242124 /* Exceptions for "SmartCosmeticBag" folder in "SmartCosmeticBag" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				SmartCosmeticBag.xcdatamodeld,
+			);
+			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F37B558B2F0D283200242124 /* SmartCosmeticBag */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F37B57052F14DEA300242124 /* Exceptions for "SmartCosmeticBag" folder in "SmartCosmeticBag" target */,
+			);
+			path = SmartCosmeticBag;
+			sourceTree = "<group>";
+		};
+		F37B56F72F140CE600242124 /* SmartCosmeticBag */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F37B57042F14DEA000242124 /* Exceptions for "SmartCosmeticBag" folder in "SmartCosmeticBag" target */,
+			);
 			path = SmartCosmeticBag;
 			sourceTree = "<group>";
 		};
@@ -45,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37B57002F14135100242124 /* CosmeticModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,10 +104,12 @@
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
+				F37B57012F14179A00242124 /* DesignModule */,
+				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
+				F37B56E32F1401D300242124 /* AppConfigurationModule */,
 				F37B56CC2F115B7400242124 /* DataPoolModule */,
-				F37B56CB2F115B2800242124 /* AppSettingsModule */,
 				F37B56C92F11541C00242124 /* CosmeticModule */,
-				F37B558B2F0D283200242124 /* SmartCosmeticBag */,
+				F37B56FE2F14135100242124 /* Frameworks */,
 				F37B558A2F0D283200242124 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,8 +120,16 @@
 				F37B55892F0D283200242124 /* SmartCosmeticBag.app */,
 				F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */,
 				F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */,
+				F37B558B2F0D283200242124 /* SmartCosmeticBag */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F37B56FE2F14135100242124 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +149,11 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F37B558B2F0D283200242124 /* SmartCosmeticBag */,
+				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
 			);
 			name = SmartCosmeticBag;
 			packageProductDependencies = (
+				F37B56FF2F14135100242124 /* CosmeticModule */,
 			);
 			productName = SmartCosmeticBag;
 			productReference = F37B55892F0D283200242124 /* SmartCosmeticBag.app */;
@@ -580,6 +628,13 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F37B56FF2F14135100242124 /* CosmeticModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CosmeticModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F37B55812F0D283200242124 /* Project object */;
 }

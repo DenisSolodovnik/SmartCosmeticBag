@@ -7,15 +7,24 @@
 
 import SwiftUI
 import CoreData
+import CosmeticModule
 
 @main
 struct SmartCosmeticBagApp: App {
-    let persistenceController = PersistenceController.shared
+
+    @StateObject private var coordinator = CosmeticCoordinator.shared
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationStack(path: $coordinator.path) {
+                coordinator.build(.categoriesList)
+                    .navigationDestination(for: CosmeticScreens.self) { route in
+                        coordinator.build(route)
+                    }
+            }
         }
+
+//            LaunchView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }

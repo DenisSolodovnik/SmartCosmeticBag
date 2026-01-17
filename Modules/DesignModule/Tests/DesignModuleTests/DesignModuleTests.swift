@@ -1,7 +1,7 @@
 import XCTest
-@testable import AppSettingsModule
+@testable import DesignModule
 
-final class AppSettingsModuleTests: XCTestCase {
+final class DesignModuleTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

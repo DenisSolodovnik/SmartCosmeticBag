@@ -41,6 +41,7 @@
 		F37B57042F14DEA000242124 /* Exceptions for "SmartCosmeticBag" folder in "SmartCosmeticBag" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Info.plist,
 				Persistence.swift,
 				SmartCosmeticBagApp.swift,
 			);
@@ -50,6 +51,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Assets.xcassets,
+				Info.plist,
 				SmartCosmeticBag.xcdatamodeld,
 			);
 			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
@@ -437,11 +439,11 @@
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SmartCosmeticBag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SmartCosmeticBag;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
@@ -476,11 +478,11 @@
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SmartCosmeticBag/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SmartCosmeticBag;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;

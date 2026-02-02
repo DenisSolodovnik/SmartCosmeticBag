@@ -1,13 +1,13 @@
 //
-//  AppConfigurationActor.swift
+//  AppConfigurationProvider.swift
 //  AppConfigurationModule
 //
 //  Created by Денис Солодовник on 12.01.2026.
 //
 
-public actor AppConfigurationActor {
+public actor AppConfigurationProvider {
 
-    private let configurator: AppConfigurator = .init()
+    private let configurator: AppConfiguratorCore = .init()
 
     public init() {}
 

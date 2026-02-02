@@ -1,5 +1,5 @@
 //
-//  CategoryCard.swift
+//  CategoryItemCard.swift
 //  DesignModule
 //
 //  Created by Денис Солодовник on 20.01.2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CategoryCard: View {
+public struct CategoryItemCard: View {
 
     let expirationStatus: ExpirationStatus
 

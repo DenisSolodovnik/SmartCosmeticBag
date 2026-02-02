@@ -9,23 +9,16 @@ let package = Package(
         .iOS(.v17)
     ],
     products: [
-        .library(name: "DataPoolCore", targets: ["DataPoolCore"]),
-        .library(name: "DataPoolCategories", targets: ["DataPoolCategories"]),
-        .library(name: "DataPoolCategoryItems", targets: ["DataPoolCategoryItems"]),
-        .library(name: "DataPoolItem", targets: ["DataPoolItem"])
+        .library(name: "CosmeticDataPool", targets: ["CosmeticDataPool"])
     ],
     targets: [
-        .target(name: "DataPoolCore", dependencies: []),
-        .target(name: "DataPoolCategories", dependencies: ["DataPoolCore"]),
-        .target(name: "DataPoolCategoryItems", dependencies: ["DataPoolCore"]),
-        .target(name: "DataPoolItem", dependencies: ["DataPoolCore"]),
+        .target(name: "CosmeticDataPool", dependencies: []),
         .testTarget(
             name: "DataPoolModuleTests",
             dependencies: [
-                "DataPoolCore",
-                "DataPoolCategoryItems",
-                "DataPoolItem"
+                "CosmeticDataPool"
             ]
         )
     ]
 )
+

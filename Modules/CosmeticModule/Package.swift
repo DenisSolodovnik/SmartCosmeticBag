@@ -13,19 +13,22 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "DesignModule", path: "../DesignModule"),
-        .package(name: "AppConfigurationModule", path: "../AppConfigurationModule")
+        .package(name: "DataPoolModule", path: "../DataPoolModule")
     ],
     targets: [
         .target(
             name: "CosmeticModule",
             dependencies: [
                 "DesignModule",
-                "AppConfigurationModule"
+                .product(name: "CosmeticDataPool", package: "DataPoolModule")
             ]
         ),
         .testTarget(
             name: "CosmeticModuleTests",
-            dependencies: ["CosmeticModule"]
+            dependencies: [
+                "CosmeticModule",
+                .product(name: "CosmeticDataPool", package: "DataPoolModule")
+            ]
         ),
     ]
 )

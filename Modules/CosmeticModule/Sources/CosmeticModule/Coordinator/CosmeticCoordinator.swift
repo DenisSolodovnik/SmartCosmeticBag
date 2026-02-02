@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import CosmeticDataPool
 
 @MainActor
 public final class CosmeticCoordinator: ObservableObject {
 
-    public static let shared = CosmeticCoordinator()
-
     @Published public var path: [CosmeticScreens] = []
 
-    private init() {}
+    private var cosmeticDataPool: CosmeticDataPool
+
+    public init(cosmeticDataPool: CosmeticDataPool) {
+        self.cosmeticDataPool = cosmeticDataPool
+    }
 
     // MARK: - View Factory
 
@@ -22,7 +25,7 @@ public final class CosmeticCoordinator: ObservableObject {
     public func build(_ route: CosmeticScreens) -> some View {
         switch route {
             case .categoriesList:
-                CosmeticCategoriesAssembly().assembly()
+                categoryItemsScreen()
                 //                CosmeticCategoriesView(
                 //                    onCategoryTap: { [weak self] id in
                 //                        self?.push(.category(id: id))
@@ -33,7 +36,7 @@ public final class CosmeticCoordinator: ObservableObject {
                 EmptyView()
 
             case .categoryItems:
-                EmptyView()
+                categoryItemsScreen()
 
             case .addCategoryItem:
                 EmptyView()
@@ -41,6 +44,15 @@ public final class CosmeticCoordinator: ObservableObject {
             case .categoryItemView:
                 EmptyView()
         }
+    }
+}
+
+// MARK: - Screens
+
+private extension CosmeticCoordinator {
+
+    func categoryItemsScreen() -> some View {
+        CategoryItemsAssembly(categoryItemsDataPool: cosmeticDataPool).assembly()
     }
 }
 
@@ -66,3 +78,4 @@ private extension CosmeticCoordinator {
         path = [.categoriesList]
     }
 }
+

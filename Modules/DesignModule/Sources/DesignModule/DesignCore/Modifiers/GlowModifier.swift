@@ -16,7 +16,6 @@ public struct GlowModifier: ViewModifier {
 
     public func body(content: Content) -> some View {
         let glowData: GlowData = glowKind.data
-        debugPrint("\(scheme) - \(glowData.opacity(for: scheme))")
 
         return content
             .shadow(

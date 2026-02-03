@@ -1,5 +1,5 @@
 //
-//  CosmeticCategoriesSkeleton.swift
+//  CategoryItemsSkeletonView.swift
 //  CosmeticModule
 //
 //  Created by Денис Солодовник on 12.01.2026.
@@ -8,7 +8,7 @@
 import SwiftUI
 import DesignModule
 
-struct CosmeticCategoriesSkeleton: View {
+struct CategoryItemsSkeletonView: View {
 
     var body: some View {
         VStack {

@@ -10,6 +10,7 @@ import Foundation
 public enum CornerSize {
 
     case categoryCard
+    case categoryItemCard
     case smallCard
     case button
     case bottomSheet
@@ -18,6 +19,7 @@ public enum CornerSize {
     public var value: CGFloat {
         switch self {
             case .categoryCard: 16
+            case .categoryItemCard: 16
             case .smallCard: 12
             case .button: 14
             case .bottomSheet: 24

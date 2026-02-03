@@ -7,25 +7,50 @@
 
 import Foundation
 import AppConfigurationModule
+import CosmeticDataPool
 
 @MainActor
 final class CategoryItemsViewModel: ObservableObject {
 
     @Published var isLoading: Bool = true
 
-    private let configurationActor: AppConfigurationActor
-    private var configuration: AppConfigurationModel?
+    var categoryItemSortKey: CategoryItemSortKey = .bestBefore
+    var isAscending: Bool = true
 
-    init(configurationActor: AppConfigurationActor) {
-        self.configurationActor = configurationActor
+    private let categoryItemsDataPool: ICategoryItemsDataPool
+
+    private let mapPoolItems: MapPoolItemsUseCase
+    private let sortItems: SortItemsUseCase
+
+    @Published var itemModels: [CategoryItemModel] = []
+
+    init(categoryItemsDataPool: ICategoryItemsDataPool) {
+        self.categoryItemsDataPool = categoryItemsDataPool
+
+        mapPoolItems = .init()
+        sortItems = .init()
     }
 
-    func loadConfiguration() async {
-        do {
-            configuration = try await configurationActor.loadAppConfiguration()
-            isLoading = false
-        } catch {
+    func loadItemModels() async {
+        guard isLoading else { return }
 
+        do {
+            let dtoItems = try await categoryItemsDataPool.loadItems()
+            let mappedItems = mapPoolItems(dtoItems)
+            itemModels = sortItems(mappedItems, by: categoryItemSortKey, isAscending: isAscending)
+        } catch {
+            itemModels = []
         }
+
+        isLoading = false
+    }
+
+    func deleteModel(id: Int) {
+        if let index = itemModels.firstIndex(where: { $0.id == id }) {
+            itemModels.remove(at: index)
+        }
+
+        // Add Core data save!
     }
 }
+

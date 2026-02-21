@@ -1,7 +1,7 @@
 import XCTest
-@testable import DataPoolModule
+@testable import DataRepositoryModule
 
-final class DataPoolModuleTests: XCTestCase {
+final class DataRepositoryModuleTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F37B57002F14135100242124 /* CosmeticModule in Frameworks */ = {isa = PBXBuildFile; productRef = F37B56FF2F14135100242124 /* CosmeticModule */; };
+		F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */ = {isa = PBXBuildFile; productRef = F37B56FF2F14135100242124 /* CosmeticModule */; };
+		F36DEDAB2F33A3BD00C584AA /* CosmeticRepositoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */; };
+		F3E69D2F2F49AF5700FA1115 /* ProfileKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3E69D2E2F49AF5700FA1115 /* ProfileKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +34,9 @@
 		F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B56C92F11541C00242124 /* CosmeticModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticModule; path = Modules/CosmeticModule; sourceTree = "<group>"; };
-		F37B56CC2F115B7400242124 /* DataPoolModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataPoolModule; path = Modules/DataPoolModule; sourceTree = "<group>"; };
 		F37B56E32F1401D300242124 /* AppConfigurationModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppConfigurationModule; path = Modules/AppConfigurationModule; sourceTree = "<group>"; };
 		F37B57012F14179A00242124 /* DesignModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignModule; path = Modules/DesignModule; sourceTree = "<group>"; };
+		F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataRepositoryModule; path = Modules/DataRepositoryModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -42,7 +44,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				Persistence.swift,
 				SmartCosmeticBagApp.swift,
 			);
 			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
@@ -52,7 +53,6 @@
 			membershipExceptions = (
 				Assets.xcassets,
 				Info.plist,
-				SmartCosmeticBag.xcdatamodeld,
 			);
 			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
 		};
@@ -82,7 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F37B57002F14135100242124 /* CosmeticModule in Frameworks */,
+				F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */,
+				F36DEDAB2F33A3BD00C584AA /* CosmeticRepositoryModule in Frameworks */,
+				F3E69D2F2F49AF5700FA1115 /* ProfileKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,10 +108,10 @@
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
+				F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */,
 				F37B57012F14179A00242124 /* DesignModule */,
 				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
 				F37B56E32F1401D300242124 /* AppConfigurationModule */,
-				F37B56CC2F115B7400242124 /* DataPoolModule */,
 				F37B56C92F11541C00242124 /* CosmeticModule */,
 				F37B56FE2F14135100242124 /* Frameworks */,
 				F37B558A2F0D283200242124 /* Products */,
@@ -156,6 +158,8 @@
 			name = SmartCosmeticBag;
 			packageProductDependencies = (
 				F37B56FF2F14135100242124 /* CosmeticModule */,
+				F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */,
+				F3E69D2E2F49AF5700FA1115 /* ProfileKit */,
 			);
 			productName = SmartCosmeticBag;
 			productReference = F37B55892F0D283200242124 /* SmartCosmeticBag.app */;
@@ -216,6 +220,7 @@
 					};
 					F37B559A2F0D283400242124 = {
 						CreatedOnToolsVersion = 26.1;
+						LastSwiftMigration = 2610;
 						TestTargetID = F37B55882F0D283200242124;
 					};
 					F37B55A42F0D283400242124 = {
@@ -233,6 +238,11 @@
 			);
 			mainGroup = F37B55802F0D283200242124;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F36DED9B2F33943400C584AA /* XCLocalSwiftPackageReference "Modules/DataRepositoryModule" */,
+				F36DEDA92F33A3AB00C584AA /* XCLocalSwiftPackageReference "Modules/CosmeticModule" */,
+				F3E69D2D2F49AF5700FA1115 /* XCRemoteSwiftPackageReference "ProfilerKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F37B558A2F0D283200242124 /* Products */;
 			projectDirPath = "";
@@ -510,6 +520,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
@@ -524,6 +535,8 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SmartCosmeticBagTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -535,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
@@ -549,6 +563,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "SmartCosmeticBagTests-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -637,10 +652,41 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		F36DED9B2F33943400C584AA /* XCLocalSwiftPackageReference "Modules/DataRepositoryModule" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/DataRepositoryModule;
+		};
+		F36DEDA92F33A3AB00C584AA /* XCLocalSwiftPackageReference "Modules/CosmeticModule" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/CosmeticModule;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3E69D2D2F49AF5700FA1115 /* XCRemoteSwiftPackageReference "ProfilerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DenisSolodovnik/ProfilerKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CosmeticRepositoryModule;
+		};
 		F37B56FF2F14135100242124 /* CosmeticModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CosmeticModule;
+		};
+		F3E69D2E2F49AF5700FA1115 /* ProfileKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3E69D2D2F49AF5700FA1115 /* XCRemoteSwiftPackageReference "ProfilerKit" */;
+			productName = ProfileKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

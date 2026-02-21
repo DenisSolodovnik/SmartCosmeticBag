@@ -5,7 +5,7 @@
 //  Created by Денис Солодовник on 01.02.2026.
 //
 
-import CosmeticDataPool
+import CosmeticRepositoryModule
 
 struct SortItemsUseCase {
 

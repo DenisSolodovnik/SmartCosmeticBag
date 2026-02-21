@@ -1,53 +1,63 @@
 import XCTest
 @testable import CosmeticModule
-@testable import CosmeticDataPool
+@testable import CosmeticRepositoryModule
 
 final class CosmeticModuleTests: XCTestCase {
 
     @MainActor func testZeroCount() async throws {
-        final class NoItemsDataPool: ICategoryItemsDataPool {
-            func loadItems() async throws -> [CategoryItemDataModelDTO] {
+        final class NoItemsDataPool: ICategoryItemsRepository {
+            func loadItems(by category: String, itemsPerPage: Int) async throws -> [CategoryItemDTO] {
                 []
             }
         }
 
-        let model: CategoryItemsViewModel = .init(categoryItemsDataPool: NoItemsDataPool())
+        let model: CategoryItemsViewModel = .init(categoryItemsRepository: NoItemsDataPool())
 
         await model.loadItemModels()
         XCTAssertEqual(model.itemModels.count, 0)
     }
 
     @MainActor func testLoadItemsThrows() async throws {
-        final class ThrowItemsDataPool: ICategoryItemsDataPool {
-            func loadItems() async throws -> [CategoryItemDataModelDTO] {
-                throw NSError(
-                    domain: "DigitalMjollnir.SmartCosmeticBug.CategoryItems",
-                    code: 1,
-                    userInfo: [NSLocalizedDescriptionKey: "Throws test"]
-                )
+        final class ThrowItemsDataPool: ICategoryItemsRepository {
+            func loadItems(by category: String, itemsPerPage: Int) async throws -> [CategoryItemDTO] {
+                throw DataRepositoryError.categoryItemsNotFound(category: "Throws test", error: nil)
             }
         }
 
-        let model: CategoryItemsViewModel = .init(categoryItemsDataPool: ThrowItemsDataPool())
+        let model: CategoryItemsViewModel = .init(categoryItemsRepository: ThrowItemsDataPool())
 
         await model.loadItemModels()
         XCTAssertEqual(model.itemModels.count, 0)
     }
 
     @MainActor func testLoadThreeItems() async throws {
-        final class ThreeItemsDataPool: ICategoryItemsDataPool {
-            func loadItems() async throws -> [CategoryItemDataModelDTO] {
+        final class ThreeItemsDataPool: ICategoryItemsRepository {
+            func loadItems(by category: String, itemsPerPage: Int) async throws -> [CategoryItemDTO] {
                 [
-                    CategoryItemDataModelDTO(id: 0, purchaseDate: Date()),
-                    CategoryItemDataModelDTO(id: 0, purchaseDate: Date()),
-                    CategoryItemDataModelDTO(id: 0, purchaseDate: Date())
+                    CategoryItemDTO.empty(),
+                    CategoryItemDTO.empty(),
+                    CategoryItemDTO.empty()
                 ]
             }
         }
 
-        let model: CategoryItemsViewModel = .init(categoryItemsDataPool: ThreeItemsDataPool())
+        let model: CategoryItemsViewModel = .init(categoryItemsRepository: ThreeItemsDataPool())
 
         await model.loadItemModels()
         XCTAssertEqual(model.itemModels.count, 3)
+    }
+}
+
+private extension CategoryItemDTO {
+
+    static func empty() -> Self {
+        .init(
+            id: "",
+            name: "",
+            photo: nil,
+            expirationDate: Date(),
+            paoDate: nil,
+            purchaseDate: Date()
+        )
     }
 }

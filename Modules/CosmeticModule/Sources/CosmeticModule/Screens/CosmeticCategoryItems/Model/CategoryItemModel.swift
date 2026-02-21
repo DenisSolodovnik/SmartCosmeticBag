@@ -60,7 +60,7 @@ extension CategoryItemModel {
     }
 
     var bestBeforeDateString: String {
-        let expireDate = min(expirationDate, paoDate ?? Date())
+        let expireDate = min(expirationDate, paoDate ?? expirationDate)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
 

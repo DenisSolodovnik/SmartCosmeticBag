@@ -46,7 +46,7 @@ extension CosmeticRepository: IItemDetailRepository {
                 throw DataRepositoryError.itemNotFound(category: categoryName, item: itemName, error: nil)
             }
 
-            let photos: [String] = (item.photos as? Set<CatalogPhotoEntity>)?.compactMap(\.photoPath) ?? []
+            let photos: [String] = (item.photos as? Set<PhotoEntity>)?.compactMap(\.photoPath) ?? []
 
             return .init(
                 id: item.id ?? "",

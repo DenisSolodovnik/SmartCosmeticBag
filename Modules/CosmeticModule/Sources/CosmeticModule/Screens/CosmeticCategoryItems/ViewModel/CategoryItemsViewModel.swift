@@ -34,6 +34,8 @@ final class CategoryItemsViewModel: ObservableObject {
     func loadItemModels() async {
         guard isLoading else { return }
 
+        // TODO: add loading items
+
         isLoading = false
     }
 

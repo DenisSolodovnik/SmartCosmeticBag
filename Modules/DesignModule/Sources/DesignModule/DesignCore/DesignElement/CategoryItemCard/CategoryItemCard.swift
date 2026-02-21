@@ -10,13 +10,13 @@ import SwiftUI
 public struct CategoryItemCard: View {
 
     let expirationStatus: ExpirationStatus
-    let itemPhoto: Image
+    let itemPhoto: Image?
     let expirationDate: String
     let paoDate: String
 
     public init(
         expirationStatus: ExpirationStatus,
-        itemPhoto: Image,
+        itemPhoto: Image?,
         expirationDate: String,
         paoDate: String
     ) {
@@ -68,7 +68,12 @@ private extension CategoryItemCard {
     }
 
     func itemPhotoCard() -> some View {
-        itemPhoto
+        guard let itemPhoto else {
+            return Image(.noPhoto)
+                .resizable()
+        }
+
+        return itemPhoto
             .resizable()
     }
 

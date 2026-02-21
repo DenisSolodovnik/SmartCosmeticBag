@@ -9,26 +9,27 @@ let package = Package(
         .iOS(.v17)
     ],
     products: [
-        .library(name: "CosmeticModule", targets: ["CosmeticModule"]),
+        .library(name: "CosmeticModule", targets: ["CosmeticModule"])
     ],
     dependencies: [
         .package(name: "DesignModule", path: "../DesignModule"),
-        .package(name: "DataPoolModule", path: "../DataPoolModule")
+        .package(name: "DataRepositoryModule", path: "../DataRepositoryModule"),
+        .package(url: "https://github.com/DenisSolodovnik/ProfilerKit.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "CosmeticModule",
             dependencies: [
                 "DesignModule",
-                .product(name: "CosmeticDataPool", package: "DataPoolModule")
+                .product(name: "CosmeticRepositoryModule", package: "DataRepositoryModule"),
+                .product(name: "ProfileKit", package: "ProfileKit")
             ]
         ),
         .testTarget(
             name: "CosmeticModuleTests",
             dependencies: [
                 "CosmeticModule",
-                .product(name: "CosmeticDataPool", package: "DataPoolModule")
             ]
-        ),
+        )
     ]
 )

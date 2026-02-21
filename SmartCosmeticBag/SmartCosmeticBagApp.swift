@@ -8,18 +8,18 @@
 import SwiftUI
 import CoreData
 import CosmeticModule
-import CosmeticDataPool
+import CosmeticRepositoryModule
 
 @main
 struct SmartCosmeticBagApp: App {
 
     @StateObject private var coordinator: CosmeticCoordinator
-    private let cosmeticDataPool: CosmeticDataPool
+    private let cosmeticRepository: CosmeticRepository
 
     init() {
-        let pool = CosmeticDataPool()
-        cosmeticDataPool = pool
-        _coordinator = StateObject(wrappedValue: CosmeticCoordinator(cosmeticDataPool: pool))
+        let repository = CosmeticRepository()
+        cosmeticRepository = repository
+        _coordinator = StateObject(wrappedValue: CosmeticCoordinator(cosmeticRepository: repository))
     }
 
     var body: some Scene {
@@ -31,8 +31,6 @@ struct SmartCosmeticBagApp: App {
                     }
             }
         }
-
-//            LaunchView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
 }
+

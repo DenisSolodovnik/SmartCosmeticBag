@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
-import CosmeticDataPool
+import CosmeticRepositoryModule
 
 public struct CategoryItemsAssembly {
 
-    private let categoryItemsDataPool: ICategoryItemsDataPool
+    private let categoryItemsRepository: ICategoryItemsRepository
 
-    public init(categoryItemsDataPool: ICategoryItemsDataPool) {
-        self.categoryItemsDataPool = categoryItemsDataPool
+    public init(categoryItemsRepository: ICategoryItemsRepository) {
+        self.categoryItemsRepository = categoryItemsRepository
     }
 
     @MainActor public func assembly() -> some View {
-        let viewModel = CategoryItemsViewModel(categoryItemsDataPool: categoryItemsDataPool)
+        let viewModel = CategoryItemsViewModel(categoryItemsRepository: categoryItemsRepository)
 
         return CategoryItemsView(viewModel: viewModel)
     }

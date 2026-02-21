@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import AppConfigurationModule
-import CosmeticDataPool
+import CoreData
+import CosmeticRepositoryModule
 
 @MainActor
 final class CategoryItemsViewModel: ObservableObject {
@@ -17,15 +17,15 @@ final class CategoryItemsViewModel: ObservableObject {
     var categoryItemSortKey: CategoryItemSortKey = .bestBefore
     var isAscending: Bool = true
 
-    private let categoryItemsDataPool: ICategoryItemsDataPool
+    private let categoryItemsRepository: ICategoryItemsRepository
 
-    private let mapPoolItems: MapPoolItemsUseCase
+    private let mapPoolItems: MapCategoryItemsUseCase
     private let sortItems: SortItemsUseCase
 
     @Published var itemModels: [CategoryItemModel] = []
 
-    init(categoryItemsDataPool: ICategoryItemsDataPool) {
-        self.categoryItemsDataPool = categoryItemsDataPool
+    init(categoryItemsRepository: ICategoryItemsRepository) {
+        self.categoryItemsRepository = categoryItemsRepository
 
         mapPoolItems = .init()
         sortItems = .init()
@@ -34,23 +34,15 @@ final class CategoryItemsViewModel: ObservableObject {
     func loadItemModels() async {
         guard isLoading else { return }
 
-        do {
-            let dtoItems = try await categoryItemsDataPool.loadItems()
-            let mappedItems = mapPoolItems(dtoItems)
-            itemModels = sortItems(mappedItems, by: categoryItemSortKey, isAscending: isAscending)
-        } catch {
-            itemModels = []
-        }
+        // TODO: add loading items
 
         isLoading = false
     }
 
-    func deleteModel(id: Int) {
+    func deleteModel(id: String) {
         if let index = itemModels.firstIndex(where: { $0.id == id }) {
             itemModels.remove(at: index)
         }
-
-        // Add Core data save!
     }
 }
 

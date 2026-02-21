@@ -6,16 +6,28 @@
 //
 
 import Foundation
+import CosmeticRepositoryModule
 import SwiftUI
 
 struct CategoryItemModel: Identifiable {
 
-    let id: Int
+    let id: String
     let name: String
-    let photo: Image
+    private(set) var photo: Image?
     let expirationDate: Date
-    let paoDate: Date
+    let paoDate: Date?
     let purchaseDate: Date
+
+    private let photoPath: String?
+
+    init(from dto: CategoryItemDTO) {
+        id = dto.id
+        name = dto.name
+        expirationDate = dto.expirationDate
+        paoDate = dto.paoDate
+        purchaseDate = dto.purchaseDate
+        photoPath = dto.photo
+    }
 }
 
 extension CategoryItemModel {
@@ -29,6 +41,11 @@ extension CategoryItemModel {
     var paoDateString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
+
+        guard let paoDate else {
+            return "Средство не было открыто."
+        }
+
         return dateFormatter.string(from: paoDate)
     }
 
@@ -39,11 +56,11 @@ extension CategoryItemModel {
     }
 
     var bestBeforeDate: Date {
-        min(expirationDate, paoDate)
+        min(expirationDate, paoDate ?? Date())
     }
 
     var bestBeforeDateString: String {
-        let expireDate = min(expirationDate, paoDate)
+        let expireDate = min(expirationDate, paoDate ?? expirationDate)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
 

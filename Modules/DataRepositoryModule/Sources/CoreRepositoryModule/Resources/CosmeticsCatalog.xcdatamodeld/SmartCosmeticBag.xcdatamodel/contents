@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24411" systemVersion="25C56" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CatalogEntity" representedClassName=".CatalogEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CategoryEntity" inverseName="catalog" inverseEntity="CategoryEntity"/>
+    </entity>
+    <entity name="CatalogPhotoEntity" representedClassName=".CatalogPhotoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="photoPath" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="categoryPhoto" inverseEntity="CategoryEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CategoryEntity" representedClassName=".CategoryEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="count" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="catalog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CatalogEntity" inverseName="categories" inverseEntity="CatalogEntity"/>
+        <relationship name="categoryPhoto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CatalogPhotoEntity" inverseName="category" inverseEntity="CatalogPhotoEntity"/>
+        <relationship name="expirationDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExpirationDateEntity" inverseName="category" inverseEntity="ExpirationDateEntity"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemSummaryEntity" inverseName="category" inverseEntity="ItemSummaryEntity"/>
+    </entity>
+    <entity name="ExpirationDateEntity" representedClassName=".ExpirationDateEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="expirationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="expirationDates" inverseEntity="CategoryEntity"/>
+    </entity>
+    <entity name="ItemDetailEntity" representedClassName=".ItemDetailEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="expirationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="openDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="paoDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="purchaseDate" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhotoEntity" inverseName="itemDetail" inverseEntity="PhotoEntity"/>
+        <relationship name="summary" maxCount="1" deletionRule="Nullify" destinationEntity="ItemSummaryEntity" inverseName="detail" inverseEntity="ItemSummaryEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="ItemSummaryEntity" representedClassName=".ItemSummaryEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="expirationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="paoDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="purchaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="items" inverseEntity="CategoryEntity"/>
+        <relationship name="detail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ItemDetailEntity" inverseName="summary" inverseEntity="ItemDetailEntity"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PhotoEntity" inverseName="summary" inverseEntity="PhotoEntity"/>
+    </entity>
+    <entity name="PhotoEntity" representedClassName=".PhotoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="photoPath" attributeType="String"/>
+        <relationship name="itemDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemDetailEntity" inverseName="photos" inverseEntity="ItemDetailEntity"/>
+        <relationship name="summary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemSummaryEntity" inverseName="photo" inverseEntity="ItemSummaryEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+</model>

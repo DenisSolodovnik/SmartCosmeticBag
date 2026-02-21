@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
-import CosmeticDataPool
+import CosmeticRepositoryModule
 
 @MainActor
 public final class CosmeticCoordinator: ObservableObject {
 
     @Published public var path: [CosmeticScreens] = []
 
-    private var cosmeticDataPool: CosmeticDataPool
+    private var cosmeticRepository: CosmeticRepository
 
-    public init(cosmeticDataPool: CosmeticDataPool) {
-        self.cosmeticDataPool = cosmeticDataPool
+    public init(cosmeticRepository: CosmeticRepository) {
+        self.cosmeticRepository = cosmeticRepository
     }
 
     // MARK: - View Factory
@@ -52,7 +52,7 @@ public final class CosmeticCoordinator: ObservableObject {
 private extension CosmeticCoordinator {
 
     func categoryItemsScreen() -> some View {
-        CategoryItemsAssembly(categoryItemsDataPool: cosmeticDataPool).assembly()
+        CategoryItemsAssembly(categoryItemsRepository: cosmeticRepository).assembly()
     }
 }
 

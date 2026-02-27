@@ -6,7 +6,8 @@
 //
 
 public struct AppConfigurationModel: Sendable {
-    public var categoryItems: [String] = [] // Replace [String] with a proper model if needed.
+
+    public var categoryItems: [String] = []
 
     public init(categoryItems: [String] = []) {
         self.categoryItems = categoryItems

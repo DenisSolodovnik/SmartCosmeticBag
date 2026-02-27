@@ -11,17 +11,17 @@ public struct ItemDetailDTO: Identifiable, Sendable {
 
     public let id: String
     let name: String
-    let photos: [String]
-    let expirationDate: Date
-    let paoDate: Date?
+    let photos: [(id: String, kind: String)]
     let purchaseDate: Date
     let openDate: Date?
+    let paoDate: Date?
+    let expirationDate: Date
     let notes: String?
 
     public init(
         id: String,
         name: String,
-        photos: [String],
+        photos: [(id: String, kind: String)],
         expirationDate: Date,
         paoDate: Date,
         purchaseDate: Date,

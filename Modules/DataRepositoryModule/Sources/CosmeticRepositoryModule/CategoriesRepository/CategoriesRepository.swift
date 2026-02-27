@@ -26,14 +26,21 @@ extension CosmeticRepository: ICategoriesRepository {
                 throw DataRepositoryError.categoriesNotFound(error)
             }
 
-            return categories.map {
-                .init(
-                    id: $0.id ?? "",
-                    count: Int($0.count),
-                    name: $0.name ?? "",
-                    categoryPhoto: $0.categoryPhoto?.photoPath,
+            return categories.map { category in
+                let photo: (id: String, kind: String)?
+                if let photoId = category.photoId, let photoKind = category.photoKind {
+                    photo = (id: photoId, kind: photoKind)
+                } else {
+                    photo = nil
+                }
+
+                return .init(
+                    id: category.id ?? "",
+                    count: Int(category.count),
+                    name: category.name ?? "",
+                    photo: photo,
                     expirationDates: (
-                        $0.expirationDates as? Set<ExpirationDateEntity>
+                        category.expirationDates as? Set<ExpirationDateEntity>
                     )?.compactMap(\.expirationDate) ?? []
                 )
             }

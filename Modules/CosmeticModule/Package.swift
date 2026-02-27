@@ -22,13 +22,13 @@ let package = Package(
             dependencies: [
                 "DesignModule",
                 .product(name: "CosmeticRepositoryModule", package: "DataRepositoryModule"),
-                .product(name: "ProfileKit", package: "ProfileKit")
+                .product(name: "ProfilerKit", package: "ProfilerKit")
             ]
         ),
         .testTarget(
             name: "CosmeticModuleTests",
             dependencies: [
-                "CosmeticModule",
+                "CosmeticModule"
             ]
         )
     ]

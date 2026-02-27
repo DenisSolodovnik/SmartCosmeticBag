@@ -12,24 +12,31 @@ public struct CategoryItemDTO: Identifiable, Sendable {
 
     public let id: String
     public let name: String
-    public let photo: String?
-    public let expirationDate: Date
-    public let paoDate: Date?
+    public let photo: (id: String, kind: String)?
     public let purchaseDate: Date
+    public let paoDate: Date?
+    public let expirationDate: Date
 
     public init(
         id: String,
         name: String,
-        photo: String?,
-        expirationDate: Date,
+        photoId: String?,
+        photoKind: String?,
+        purchaseDate: Date,
         paoDate: Date?,
-        purchaseDate: Date
+        expirationDate: Date
     ) {
         self.id = id
         self.name = name
-        self.photo = photo
         self.expirationDate = expirationDate
         self.paoDate = paoDate
         self.purchaseDate = purchaseDate
+
+        guard let photoId, let photoKind else {
+            photo = nil
+            return
+        }
+        
+        self.photo = (id: photoId, kind: photoKind)
     }
 }

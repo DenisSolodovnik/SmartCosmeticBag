@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */ = {isa = PBXBuildFile; productRef = F37B56FF2F14135100242124 /* CosmeticModule */; };
 		F36DEDAB2F33A3BD00C584AA /* CosmeticRepositoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */; };
-		F3E69D2F2F49AF5700FA1115 /* ProfileKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3E69D2E2F49AF5700FA1115 /* ProfileKit */; };
+		F3A127BE2F507F78000FB444 /* ProfilerKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3A127BD2F507F78000FB444 /* ProfilerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +83,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */,
+				F3A127BE2F507F78000FB444 /* ProfilerKit in Frameworks */,
 				F36DEDAB2F33A3BD00C584AA /* CosmeticRepositoryModule in Frameworks */,
-				F3E69D2F2F49AF5700FA1115 /* ProfileKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +159,7 @@
 			packageProductDependencies = (
 				F37B56FF2F14135100242124 /* CosmeticModule */,
 				F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */,
-				F3E69D2E2F49AF5700FA1115 /* ProfileKit */,
+				F3A127BD2F507F78000FB444 /* ProfilerKit */,
 			);
 			productName = SmartCosmeticBag;
 			productReference = F37B55892F0D283200242124 /* SmartCosmeticBag.app */;
@@ -241,7 +241,7 @@
 			packageReferences = (
 				F36DED9B2F33943400C584AA /* XCLocalSwiftPackageReference "Modules/DataRepositoryModule" */,
 				F36DEDA92F33A3AB00C584AA /* XCLocalSwiftPackageReference "Modules/CosmeticModule" */,
-				F3E69D2D2F49AF5700FA1115 /* XCRemoteSwiftPackageReference "ProfilerKit" */,
+				F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F37B558A2F0D283200242124 /* Products */;
@@ -664,12 +664,12 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F3E69D2D2F49AF5700FA1115 /* XCRemoteSwiftPackageReference "ProfilerKit" */ = {
+		F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DenisSolodovnik/ProfilerKit.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -683,10 +683,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = CosmeticModule;
 		};
-		F3E69D2E2F49AF5700FA1115 /* ProfileKit */ = {
+		F3A127BD2F507F78000FB444 /* ProfilerKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3E69D2D2F49AF5700FA1115 /* XCRemoteSwiftPackageReference "ProfilerKit" */;
-			productName = ProfileKit;
+			package = F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */;
+			productName = ProfilerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

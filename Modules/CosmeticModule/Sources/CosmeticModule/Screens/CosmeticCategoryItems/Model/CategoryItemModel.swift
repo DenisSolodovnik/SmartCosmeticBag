@@ -13,12 +13,10 @@ struct CategoryItemModel: Identifiable {
 
     let id: String
     let name: String
-    private(set) var photo: Image?
+    private(set) var photoInfo: PhotoInfoModel?
     let expirationDate: Date
     let paoDate: Date?
     let purchaseDate: Date
-
-    private let photoPath: String?
 
     init(from dto: CategoryItemDTO) {
         id = dto.id
@@ -26,7 +24,12 @@ struct CategoryItemModel: Identifiable {
         expirationDate = dto.expirationDate
         paoDate = dto.paoDate
         purchaseDate = dto.purchaseDate
-        photoPath = dto.photo
+
+        photoInfo = if let photo = dto.photo, let kind = PhotoKind(rawValue: photo.kind) {
+            .init(id: photo.id, kind: kind)
+        } else {
+            nil
+        }
     }
 }
 

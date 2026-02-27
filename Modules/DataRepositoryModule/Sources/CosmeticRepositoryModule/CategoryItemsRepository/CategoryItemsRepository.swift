@@ -36,10 +36,11 @@ extension CosmeticRepository: ICategoryItemsRepository {
                 .init(
                     id: $0.id ?? "",
                     name: $0.name ?? "",
-                    photo: $0.photo?.photoPath,
-                    expirationDate: $0.expirationDate ?? Date(),
+                    photoId: $0.photoId,
+                    photoKind: $0.photoKind,
+                    purchaseDate: $0.purchaseDate ?? Date(),
                     paoDate: $0.paoDate,
-                    purchaseDate: $0.purchaseDate ?? Date()
+                    expirationDate: $0.expirationDate ?? Date()
                 )
             }
         }

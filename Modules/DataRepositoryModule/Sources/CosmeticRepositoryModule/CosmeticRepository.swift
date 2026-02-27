@@ -17,13 +17,4 @@ public final class CosmeticRepository: Sendable {
         persistentController = .init()
         container = persistentController.container
     }
-
-    func loadCatalog() async throws -> CatalogEntity? {
-        let context = container.newBackgroundContext()
-        return try await context.perform {
-            let request: NSFetchRequest<CatalogEntity> = CatalogEntity.fetchRequest()
-            request.fetchLimit = 1
-            return try context.fetch(request).first
-        }
-    }
 }

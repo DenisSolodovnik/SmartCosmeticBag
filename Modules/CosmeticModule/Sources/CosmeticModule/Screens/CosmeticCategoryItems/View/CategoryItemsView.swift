@@ -43,7 +43,7 @@ private extension CategoryItemsView {
             ForEach(viewModel.itemModels) { model in
                 CategoryItemCard(
                     expirationStatus: .good,
-                    itemPhoto: model.photo,
+                    itemPhoto: viewModel.getPhoto(from: model),
                     expirationDate: model.expirationDateString,
                     paoDate: model.paoDateString
                 )

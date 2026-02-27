@@ -12,6 +12,6 @@ public struct CategoryDTO: Identifiable, Sendable {
     public let id: String
     let count: Int
     let name: String
-    let categoryPhoto: String?
+    let photo: (id: String, kind: String)?
     let expirationDates: [Date]
 }

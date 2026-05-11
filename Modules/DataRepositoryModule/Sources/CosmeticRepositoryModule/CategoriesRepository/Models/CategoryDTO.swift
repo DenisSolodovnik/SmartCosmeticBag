@@ -9,9 +9,9 @@ import Foundation
 
 public struct CategoryDTO: Identifiable, Sendable {
 
-    public let id: String
+    public let id: UUID
     let count: Int
     let name: String
-    let photo: (id: String, kind: String)?
+    let photo: (id: UUID, categoryId: UUID)?
     let expirationDates: [Date]
 }

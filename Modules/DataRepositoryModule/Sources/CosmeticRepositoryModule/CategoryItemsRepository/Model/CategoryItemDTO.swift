@@ -6,37 +6,41 @@
 //
 
 import Foundation
-import SwiftUI
 
 public struct CategoryItemDTO: Identifiable, Sendable {
 
-    public let id: String
+    public let id: UUID
+    public let categoryId: UUID
     public let name: String
-    public let photo: (id: String, kind: String)?
+    public let photo: (id: UUID, categoryId: UUID)?
     public let purchaseDate: Date
+    public let openDate: Date?
     public let paoDate: Date?
     public let expirationDate: Date
 
     public init(
-        id: String,
+        id: UUID,
+        categoryId: UUID,
         name: String,
-        photoId: String?,
-        photoKind: String?,
+        photoId: UUID?,
         purchaseDate: Date,
+        openDate: Date?,
         paoDate: Date?,
         expirationDate: Date
     ) {
         self.id = id
         self.name = name
+        self.categoryId = categoryId
         self.expirationDate = expirationDate
         self.paoDate = paoDate
         self.purchaseDate = purchaseDate
+        self.openDate = openDate
 
-        guard let photoId, let photoKind else {
+        guard let photoId else {
             photo = nil
             return
         }
         
-        self.photo = (id: photoId, kind: photoKind)
+        self.photo = (id: photoId, categoryId: categoryId)
     }
 }

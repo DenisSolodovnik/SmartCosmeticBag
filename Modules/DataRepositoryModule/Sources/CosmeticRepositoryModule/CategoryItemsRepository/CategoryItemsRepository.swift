@@ -9,38 +9,44 @@ import CoreData
 import Foundation
 import CoreRepositoryModule
 
-public protocol ICategoryItemsRepository: Sendable {
+public protocol ICategoryItemsRepository: Actor {
 
-    func loadItems(by category: String, itemsPerPage: Int) async throws -> [CategoryItemDTO]
+    func loadItems(by category: UUID, itemsPerPage: Int) async throws -> [CategoryItemDTO]
 }
 
 extension CosmeticRepository: ICategoryItemsRepository {
 
-    public func loadItems(by category: String, itemsPerPage: Int) async throws -> [CategoryItemDTO] {
+    public func loadItems(by category: UUID, itemsPerPage: Int) async throws -> [CategoryItemDTO] {
         try await persistentController.perform { context in
             let request: NSFetchRequest<ItemSummaryEntity> = ItemSummaryEntity.fetchRequest()
-            request.predicate = NSPredicate(format: "category.id == %@", category)
-            request.sortDescriptors = [
-                NSSortDescriptor(key: "sortIndex", ascending: true)
-            ]
+            request.predicate = NSPredicate(format: "category.id == %@", category as CVarArg)
             request.fetchBatchSize = itemsPerPage
 
             let items: [ItemSummaryEntity]
             do {
                 items = try context.fetch(request)
             } catch {
-                throw DataRepositoryError.categoryItemsNotFound(category: category, error: error)
+                throw DataRepositoryError.dataCorrupted(
+                    name: category.uuidString,
+                    error: error
+                )
             }
 
-            return items.map {
-                .init(
-                    id: $0.id ?? "",
-                    name: $0.name ?? "",
-                    photoId: $0.photoId,
-                    photoKind: $0.photoKind,
-                    purchaseDate: $0.purchaseDate ?? Date(),
-                    paoDate: $0.paoDate,
-                    expirationDate: $0.expirationDate ?? Date()
+            return try items.map { item in
+                guard let id = item.id,
+                      let categoryId = item.category?.id else {
+                    throw DataRepositoryError.dataCorrupted(name: item.name, error: nil)
+                }
+
+                return .init(
+                    id: id,
+                    categoryId: categoryId,
+                    name: item.name ?? "",
+                    photoId: item.photoId,
+                    purchaseDate: item.purchaseDate ?? Date(),
+                    openDate: item.openDate,
+                    paoDate: item.paoDate,
+                    expirationDate: item.expirationDate ?? Date()
                 )
             }
         }

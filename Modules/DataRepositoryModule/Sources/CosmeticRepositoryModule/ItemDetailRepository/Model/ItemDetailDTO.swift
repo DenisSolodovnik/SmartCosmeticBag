@@ -9,9 +9,9 @@ import Foundation
 
 public struct ItemDetailDTO: Identifiable, Sendable {
 
-    public let id: String
+    public let id: UUID
     let name: String
-    let photos: [(id: String, kind: String)]
+    let photos: [(id: UUID, categoryId: UUID)]
     let purchaseDate: Date
     let openDate: Date?
     let paoDate: Date?
@@ -19,9 +19,9 @@ public struct ItemDetailDTO: Identifiable, Sendable {
     let notes: String?
 
     public init(
-        id: String,
+        id: UUID,
         name: String,
-        photos: [(id: String, kind: String)],
+        photos: [(id: UUID, categoryId: UUID)],
         expirationDate: Date,
         paoDate: Date,
         purchaseDate: Date,

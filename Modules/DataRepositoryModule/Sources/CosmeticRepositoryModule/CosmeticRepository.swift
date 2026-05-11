@@ -8,7 +8,7 @@
 import CoreData
 import CoreRepositoryModule
 
-public final class CosmeticRepository: Sendable {
+public final actor CosmeticRepository: Sendable {
 
     let persistentController: CoreRepository
     private let container: NSPersistentContainer

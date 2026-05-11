@@ -14,7 +14,8 @@ let package = Package(
     dependencies: [
         .package(name: "DesignModule", path: "../DesignModule"),
         .package(name: "DataRepositoryModule", path: "../DataRepositoryModule"),
-        .package(url: "https://github.com/DenisSolodovnik/ProfilerKit.git", from: "1.0.0")
+        .package(url: "https://github.com/DenisSolodovnik/ProfilerKit.git", from: "1.0.0"),
+        .package(name: "PhotoStorage", path: "../PhotoStorage")
     ],
     targets: [
         .target(
@@ -22,7 +23,8 @@ let package = Package(
             dependencies: [
                 "DesignModule",
                 .product(name: "CosmeticRepositoryModule", package: "DataRepositoryModule"),
-                .product(name: "ProfilerKit", package: "ProfilerKit")
+                .product(name: "ProfilerKit", package: "ProfilerKit"),
+                .product(name: "PhotoStorage", package: "PhotoStorage")
             ]
         ),
         .testTarget(

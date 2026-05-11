@@ -8,7 +8,7 @@
 import CoreData
 import CoreRepositoryModule
 
-public protocol ICategoriesRepository: Sendable {
+public protocol ICategoriesRepository: Actor {
 
     func loadCategories() async throws -> [CategoryDTO]
 }
@@ -26,16 +26,20 @@ extension CosmeticRepository: ICategoriesRepository {
                 throw DataRepositoryError.categoriesNotFound(error)
             }
 
-            return categories.map { category in
-                let photo: (id: String, kind: String)?
-                if let photoId = category.photoId, let photoKind = category.photoKind {
-                    photo = (id: photoId, kind: photoKind)
+            return try categories.map { category in
+                guard let id = category.id else {
+                    throw DataRepositoryError.dataCorrupted(name: category.name, error: nil)
+                }
+
+                let photo: (id: UUID, categoryId: UUID)?
+                if let photoId = category.photoId {
+                    photo = (id: photoId, categoryId: id)
                 } else {
                     photo = nil
                 }
 
                 return .init(
-                    id: category.id ?? "",
+                    id: id,
                     count: Int(category.count),
                     name: category.name ?? "",
                     photo: photo,

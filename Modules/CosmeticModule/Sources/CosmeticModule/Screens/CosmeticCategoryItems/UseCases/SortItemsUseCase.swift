@@ -5,35 +5,49 @@
 //  Created by Денис Солодовник on 01.02.2026.
 //
 
+import Foundation
 import CosmeticRepositoryModule
+import SwiftUI
 
 struct SortItemsUseCase {
+
+    enum ComparisonOrder {
+
+        case orderedAscending
+        case orderedDescending
+    }
 
     func callAsFunction(
         _ items: [CategoryItemModel],
         by key: CategoryItemSortKey,
-        isAscending: Bool
+        order: ComparisonOrder
     ) -> [CategoryItemModel] {
 
         switch key {
-            case .bestBefore:
-                if isAscending {
-                    items.sorted { $0.bestBeforeDate < $1.bestBeforeDate }
-                } else {
-                    items.sorted { $0.bestBeforeDate > $1.bestBeforeDate }
-                }
-            case .purchaseDate:
-                if isAscending {
-                    items.sorted { $0.purchaseDate < $1.purchaseDate }
-                } else {
-                    items.sorted { $0.purchaseDate > $1.purchaseDate }
-                }
-            case .name:
-                if isAscending {
-                    items.sorted { $0.name + String($0.id) < $1.name + String($1.id) }
-                } else {
-                    items.sorted { $0.name + String($0.id) > $1.name + String($1.id) }
-                }
+            case .bestBefore: getSorted(by: \.bestBeforeDate, order: order, items: items)
+            case .purchaseDate: getSorted(by: \.purchaseDate, order: order, items: items)
+            case .name: getSorted(by: \.nameForSort, order: order, items: items)
         }
+    }
+
+    private func getSorted(
+        by property: KeyPath<CategoryItemModel, some Comparable>,
+        order: ComparisonOrder,
+        items: [CategoryItemModel],
+        postfix: String = ""
+    ) -> [CategoryItemModel] {
+
+        if order == .orderedAscending {
+            items.sorted { (lhs, rhs) -> Bool in lhs[keyPath: property] < rhs[keyPath: property] }
+        } else {
+            items.sorted { (lhs, rhs) -> Bool in lhs[keyPath: property] > rhs[keyPath: property] }
+        }
+    }
+}
+
+private extension CategoryItemModel {
+
+    var nameForSort: String {
+        "\(name)\(id.uuidString)"
     }
 }

@@ -16,10 +16,6 @@ public protocol IStorage: Actor {
     func deleteImageData(for keys: [PhotoKey]) async throws
     func deleteAllImagesData() async throws
     func deleteAllImagesData(for categoryId: String) async throws
-
-#if DEBUG
-    func filesCount(in directoryId: UUID) -> Int
-#endif
 }
 
 final actor FileStorage: IStorage {
@@ -163,23 +159,6 @@ final actor FileStorage: IStorage {
 
         try await task.value
     }
-
-#if DEBUG
-    public func filesCount(in directoryId: UUID) -> Int {
-        let fileManager = FileManager.default
-        let path = basePath.appendingPathComponent(directoryId.uuidString)
-
-        var objCBool: ObjCBool = false
-        if fileManager.fileExists(atPath: path.path, isDirectory: &objCBool),
-           objCBool.boolValue {
-
-            let contents = try? fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
-            return contents?.count ?? -1
-        }
-
-        return 0
-    }
-#endif
 }
 
 private extension FileStorage {
@@ -224,3 +203,32 @@ private extension FileStorage {
         }
     }
 }
+
+// MARK: - For use in XCTest
+
+#if DEBUG
+
+protocol ITestableStorage: IStorage {
+
+    func filesCount(in directoryId: UUID) -> Int
+}
+
+extension FileStorage: ITestableStorage {
+
+    public func filesCount(in directoryId: UUID) -> Int {
+        let fileManager = FileManager.default
+        let path = basePath.appendingPathComponent(directoryId.uuidString)
+
+        var objCBool: ObjCBool = false
+        if fileManager.fileExists(atPath: path.path, isDirectory: &objCBool),
+           objCBool.boolValue {
+
+            let contents = try? fileManager.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            return contents?.count ?? -1
+        }
+
+        return 0
+    }
+}
+
+#endif

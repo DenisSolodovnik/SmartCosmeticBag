@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B7E12FEF-ADE2-461A-A6EF-A8D3D1E110CD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PhotoStorageTests",
+        "name" : "PhotoStorageTests"
+      }
+    }
+  ],
+  "version" : 1
+}

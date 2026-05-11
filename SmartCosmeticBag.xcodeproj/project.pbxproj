@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F36DA98B2FA735ED00724E32 /* PhotoStorage.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PhotoStorage.xctestplan; sourceTree = "<group>"; };
 		F37B55892F0D283200242124 /* SmartCosmeticBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCosmeticBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +110,7 @@
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
+				F36DA98B2FA735ED00724E32 /* PhotoStorage.xctestplan */,
 				F3A127CB2F51A4B7000FB444 /* PhotoStorage */,
 				F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */,
 				F37B57012F14179A00242124 /* DesignModule */,
@@ -449,9 +451,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5CA8RFTMHW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmartCosmeticBag/Info.plist;
@@ -490,9 +492,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5CA8RFTMHW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmartCosmeticBag/Info.plist;

@@ -30,12 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F36DA98B2FA735ED00724E32 /* PhotoStorage.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PhotoStorage.xctestplan; sourceTree = "<group>"; };
 		F37B55892F0D283200242124 /* SmartCosmeticBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCosmeticBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B56C92F11541C00242124 /* CosmeticModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticModule; path = Modules/CosmeticModule; sourceTree = "<group>"; };
 		F37B56E32F1401D300242124 /* AppConfigurationModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppConfigurationModule; path = Modules/AppConfigurationModule; sourceTree = "<group>"; };
 		F37B57012F14179A00242124 /* DesignModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignModule; path = Modules/DesignModule; sourceTree = "<group>"; };
+		F3A127CB2F51A4B7000FB444 /* PhotoStorage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PhotoStorage; path = Modules/PhotoStorage; sourceTree = "<group>"; };
 		F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataRepositoryModule; path = Modules/DataRepositoryModule; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,8 @@
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
+				F36DA98B2FA735ED00724E32 /* PhotoStorage.xctestplan */,
+				F3A127CB2F51A4B7000FB444 /* PhotoStorage */,
 				F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */,
 				F37B57012F14179A00242124 /* DesignModule */,
 				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
@@ -213,7 +217,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					F37B55882F0D283200242124 = {
 						CreatedOnToolsVersion = 26.1;
@@ -376,6 +380,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -433,6 +438,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -444,6 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
@@ -464,6 +471,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.SmartCosmeticBag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -472,7 +480,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -483,6 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
@@ -503,6 +512,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.SmartCosmeticBag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -511,7 +521,7 @@
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -538,7 +548,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartCosmeticBagTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCosmeticBag.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartCosmeticBag";
 			};
@@ -565,7 +575,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SmartCosmeticBagTests-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCosmeticBag.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartCosmeticBag";
 			};
@@ -585,7 +595,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SmartCosmeticBag;
 			};
@@ -605,7 +615,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SmartCosmeticBag;
 			};

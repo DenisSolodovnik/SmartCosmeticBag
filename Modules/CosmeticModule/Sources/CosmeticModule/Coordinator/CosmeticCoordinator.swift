@@ -7,16 +7,22 @@
 
 import SwiftUI
 import CosmeticRepositoryModule
+import PhotoStorage
 
 @MainActor
 public final class CosmeticCoordinator: ObservableObject {
 
     @Published public var path: [CosmeticScreens] = []
 
-    private var cosmeticRepository: CosmeticRepository
+    private let cosmeticRepository: CosmeticRepository
+    private let photoStorage: IPhotoStorage
 
-    public init(cosmeticRepository: CosmeticRepository) {
+    public init(
+        cosmeticRepository: CosmeticRepository,
+        photoStorage: IPhotoStorage
+    ) {
         self.cosmeticRepository = cosmeticRepository
+        self.photoStorage = photoStorage
     }
 
     // MARK: - View Factory
@@ -52,7 +58,10 @@ public final class CosmeticCoordinator: ObservableObject {
 private extension CosmeticCoordinator {
 
     func categoryItemsScreen() -> some View {
-        CategoryItemsAssembly(categoryItemsRepository: cosmeticRepository).assembly()
+        CategoryItemsAssembly().assembly(
+            itemsRepository: cosmeticRepository,
+            photoStorage: photoStorage
+        )
     }
 }
 

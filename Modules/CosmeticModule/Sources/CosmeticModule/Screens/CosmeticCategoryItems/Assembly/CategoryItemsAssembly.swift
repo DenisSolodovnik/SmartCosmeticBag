@@ -7,17 +7,18 @@
 
 import SwiftUI
 import CosmeticRepositoryModule
+import PhotoStorage
 
 public struct CategoryItemsAssembly {
 
-    private let categoryItemsRepository: ICategoryItemsRepository
-
-    public init(categoryItemsRepository: ICategoryItemsRepository) {
-        self.categoryItemsRepository = categoryItemsRepository
-    }
-
-    @MainActor public func assembly() -> some View {
-        let viewModel = CategoryItemsViewModel(categoryItemsRepository: categoryItemsRepository)
+    @MainActor public func assembly(
+        itemsRepository: ICategoryItemsRepository,
+        photoStorage: any IPhotoStorage
+    ) -> some View {
+        let viewModel = CategoryItemsViewModel(
+            itemsRepository: itemsRepository,
+            photoStorage: photoStorage
+        )
 
         return CategoryItemsView(viewModel: viewModel)
     }

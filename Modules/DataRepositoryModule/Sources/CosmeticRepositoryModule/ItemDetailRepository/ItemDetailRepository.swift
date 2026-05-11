@@ -10,53 +10,44 @@ import CoreRepositoryModule
 
 public protocol IItemDetailRepository: Sendable {
 
-    func loadItem(
-        by id: String,
-        itemName: String,
-        categoryName: String
-    ) async throws -> ItemDetailDTO
+    func loadItem(by id: UUID) async throws -> ItemDetailDTO
 }
 
 extension CosmeticRepository: IItemDetailRepository {
 
-    public func loadItem(
-        by id: String,
-        itemName: String,
-        categoryName: String
-    ) async throws -> ItemDetailDTO {
-
+    public func loadItem(by id: UUID) async throws -> ItemDetailDTO {
         try await persistentController.perform { context in
             let request: NSFetchRequest<ItemDetailEntity> = ItemDetailEntity.fetchRequest()
             request.fetchLimit = 1
-            request.predicate = NSPredicate(format: "id == %@", id)
+            request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
 
             let item: ItemDetailEntity?
             do {
                 item = try context.fetch(request).first
             } catch {
-                throw DataRepositoryError
-                    .itemNotFound(
-                        category: categoryName,
-                        item: itemName,
-                        error: error
-                    )
+                throw DataRepositoryError.dataCorrupted(name: id.uuidString, error: error)
             }
 
             guard let item else {
-                throw DataRepositoryError.itemNotFound(category: categoryName, item: itemName, error: nil)
+                throw DataRepositoryError.itemNotFound(id: id.uuidString, error: nil)
             }
 
-            let photos: [(id: String, kind: String)] = (item.photos as? Set<PhotoEntity>)?
-                .compactMap { entity in
-                    guard let photoId = entity.photoId,
-                          let photoKind = entity.photoKind else {
+            guard let id = item.id else {
+                throw DataRepositoryError.dataCorrupted(name: id.uuidString, error: nil)
+            }
+
+            let photos = (item.photos as? Set<PhotoEntity>)?
+                .compactMap { entity -> (id: UUID, categoryId: UUID)? in
+                    guard let photoId = entity.id,
+                          let categoryId = entity.categoryId else {
                         return nil
                     }
-                    return (id: photoId, kind: photoKind)
+
+                    return (id: photoId, categoryId: categoryId)
                 } ?? []
 
             return .init(
-                id: item.id ?? "",
+                id: id,
                 name: item.name ?? "",
                 photos: photos,
                 expirationDate: item.expirationDate ?? Date(),

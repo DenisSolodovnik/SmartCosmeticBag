@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "3104DDB2-C631-4205-9C2C-B8491974E94F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/..\/SmartCosmeticBag.xcodeproj",
+        "identifier" : "F37B559A2F0D283400242124",
+        "name" : "SmartCosmeticBagTests"
+      }
+    }
+  ],
+  "version" : 1
+}

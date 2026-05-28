@@ -58,7 +58,7 @@ public final class CosmeticCoordinator: ObservableObject {
 private extension CosmeticCoordinator {
 
     func categoryItemsScreen() -> some View {
-        CategoryItemsAssembly().assembly(
+        SummaryItemsAssembly().assembly(
             itemsRepository: cosmeticRepository,
             photoStorage: photoStorage
         )

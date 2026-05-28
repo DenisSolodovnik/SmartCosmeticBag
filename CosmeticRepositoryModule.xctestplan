@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0D703FB9-B6D3-44D5-9EA9-5419C92EB788",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/CosmeticRepositoryModule",
+        "identifier" : "CosmeticRepositoryModuleTests",
+        "name" : "CosmeticRepositoryModuleTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */ = {isa = PBXBuildFile; productRef = F37B56FF2F14135100242124 /* CosmeticModule */; };
-		F36DEDAB2F33A3BD00C584AA /* CosmeticRepositoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */; };
-		F3A127BE2F507F78000FB444 /* ProfilerKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3A127BD2F507F78000FB444 /* ProfilerKit */; };
+		F399C6E32FC8590900F8D413 /* CosmeticRepositoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = F399C6E22FC8590900F8D413 /* CosmeticRepositoryModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,18 +26,36 @@
 			remoteGlobalIDString = F37B55882F0D283200242124;
 			remoteInfo = SmartCosmeticBag;
 		};
+		F3F8F3FA2FC837FC00D911F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F37B55812F0D283200242124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F37B55882F0D283200242124;
+			remoteInfo = SmartCosmeticBag;
+		};
+		F3F8F4072FC8386100D911F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F37B55812F0D283200242124 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F37B55882F0D283200242124;
+			remoteInfo = SmartCosmeticBag;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F36DA98B2FA735ED00724E32 /* PhotoStorage.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PhotoStorage.xctestplan; sourceTree = "<group>"; };
 		F37B55892F0D283200242124 /* SmartCosmeticBag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCosmeticBag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartCosmeticBagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F37B56C92F11541C00242124 /* CosmeticModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticModule; path = Modules/CosmeticModule; sourceTree = "<group>"; };
 		F37B56E32F1401D300242124 /* AppConfigurationModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppConfigurationModule; path = Modules/AppConfigurationModule; sourceTree = "<group>"; };
 		F37B57012F14179A00242124 /* DesignModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignModule; path = Modules/DesignModule; sourceTree = "<group>"; };
+		F399C7082FC85F7900F8D413 /* CosmeticRepositoryModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticRepositoryModule; path = Modules/CosmeticRepositoryModule; sourceTree = "<group>"; };
 		F3A127CB2F51A4B7000FB444 /* PhotoStorage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PhotoStorage; path = Modules/PhotoStorage; sourceTree = "<group>"; };
-		F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DataRepositoryModule; path = Modules/DataRepositoryModule; sourceTree = "<group>"; };
+		F3F8F3F62FC837FC00D911F4 /* CosmeticsRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosmeticsRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F8F4032FC8386100D911F4 /* PhotoStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3F8F4712FC847B600D911F4 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		F3F8F4732FC84A9B00D911F4 /* CosmeticRepositoryModule.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CosmeticRepositoryModule.xctestplan; sourceTree = "<group>"; };
+		F3F8F4742FC84AC200D911F4 /* PhotoStoragePlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PhotoStoragePlan.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -84,9 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F399C6E32FC8590900F8D413 /* CosmeticRepositoryModule in Frameworks */,
 				F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */,
-				F3A127BE2F507F78000FB444 /* ProfilerKit in Frameworks */,
-				F36DEDAB2F33A3BD00C584AA /* CosmeticRepositoryModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,19 +120,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3F8F3F32FC837FC00D911F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F8F4002FC8386100D911F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
-				F36DA98B2FA735ED00724E32 /* PhotoStorage.xctestplan */,
-				F3A127CB2F51A4B7000FB444 /* PhotoStorage */,
-				F3D96D1D2F336E54004DCA1D /* DataRepositoryModule */,
-				F37B57012F14179A00242124 /* DesignModule */,
-				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
+				F399C7082FC85F7900F8D413 /* CosmeticRepositoryModule */,
 				F37B56E32F1401D300242124 /* AppConfigurationModule */,
+				F37B57012F14179A00242124 /* DesignModule */,
+				F3A127CB2F51A4B7000FB444 /* PhotoStorage */,
 				F37B56C92F11541C00242124 /* CosmeticModule */,
+				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
+				F3F8F4742FC84AC200D911F4 /* PhotoStoragePlan.xctestplan */,
+				F3F8F4732FC84A9B00D911F4 /* CosmeticRepositoryModule.xctestplan */,
+				F3F8F4712FC847B600D911F4 /* TestPlan.xctestplan */,
 				F37B56FE2F14135100242124 /* Frameworks */,
 				F37B558A2F0D283200242124 /* Products */,
 			);
@@ -129,6 +161,8 @@
 				F37B559B2F0D283400242124 /* SmartCosmeticBagTests.xctest */,
 				F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */,
 				F37B558B2F0D283200242124 /* SmartCosmeticBag */,
+				F3F8F3F62FC837FC00D911F4 /* CosmeticsRepositoryTests.xctest */,
+				F3F8F4032FC8386100D911F4 /* PhotoStorageTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,11 +194,10 @@
 				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
 			);
 			name = SmartCosmeticBag;
-			packageProductDependencies = (
-				F37B56FF2F14135100242124 /* CosmeticModule */,
-				F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */,
-				F3A127BD2F507F78000FB444 /* ProfilerKit */,
-			);
+				packageProductDependencies = (
+					F37B56FF2F14135100242124 /* CosmeticModule */,
+					F399C6E22FC8590900F8D413 /* CosmeticRepositoryModule */,
+				);
 			productName = SmartCosmeticBag;
 			productReference = F37B55892F0D283200242124 /* SmartCosmeticBag.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +242,46 @@
 			productReference = F37B55A52F0D283400242124 /* SmartCosmeticBagUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F3F8F3F52FC837FC00D911F4 /* CosmeticsRepositoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3F8F3FC2FC837FC00D911F4 /* Build configuration list for PBXNativeTarget "CosmeticsRepositoryTests" */;
+			buildPhases = (
+				F3F8F3F22FC837FC00D911F4 /* Sources */,
+				F3F8F3F32FC837FC00D911F4 /* Frameworks */,
+				F3F8F3F42FC837FC00D911F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3F8F3FB2FC837FC00D911F4 /* PBXTargetDependency */,
+			);
+			name = CosmeticsRepositoryTests;
+			packageProductDependencies = (
+			);
+			productName = CosmeticsRepositoryTests;
+			productReference = F3F8F3F62FC837FC00D911F4 /* CosmeticsRepositoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F3F8F4022FC8386100D911F4 /* PhotoStorageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3F8F4092FC8386100D911F4 /* Build configuration list for PBXNativeTarget "PhotoStorageTests" */;
+			buildPhases = (
+				F3F8F3FF2FC8386100D911F4 /* Sources */,
+				F3F8F4002FC8386100D911F4 /* Frameworks */,
+				F3F8F4012FC8386100D911F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3F8F4082FC8386100D911F4 /* PBXTargetDependency */,
+			);
+			name = PhotoStorageTests;
+			packageProductDependencies = (
+			);
+			productName = PhotoStorageTests;
+			productReference = F3F8F4032FC8386100D911F4 /* PhotoStorageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,7 +289,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2610;
+				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					F37B55882F0D283200242124 = {
@@ -231,6 +304,14 @@
 						CreatedOnToolsVersion = 26.1;
 						TestTargetID = F37B55882F0D283200242124;
 					};
+					F3F8F3F52FC837FC00D911F4 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = F37B55882F0D283200242124;
+					};
+					F3F8F4022FC8386100D911F4 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = F37B55882F0D283200242124;
+					};
 				};
 			};
 			buildConfigurationList = F37B55842F0D283200242124 /* Build configuration list for PBXProject "SmartCosmeticBag" */;
@@ -243,8 +324,8 @@
 			mainGroup = F37B55802F0D283200242124;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F36DED9B2F33943400C584AA /* XCLocalSwiftPackageReference "Modules/DataRepositoryModule" */,
 				F36DEDA92F33A3AB00C584AA /* XCLocalSwiftPackageReference "Modules/CosmeticModule" */,
+				F399C7092FC860D300F8D413 /* XCLocalSwiftPackageReference "Modules/CosmeticRepositoryModule" */,
 				F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -255,6 +336,8 @@
 				F37B55882F0D283200242124 /* SmartCosmeticBag */,
 				F37B559A2F0D283400242124 /* SmartCosmeticBagTests */,
 				F37B55A42F0D283400242124 /* SmartCosmeticBagUITests */,
+				F3F8F3F52FC837FC00D911F4 /* CosmeticsRepositoryTests */,
+				F3F8F4022FC8386100D911F4 /* PhotoStorageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +358,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F37B55A32F0D283400242124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F8F3F42FC837FC00D911F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F8F4012FC8386100D911F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,6 +402,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3F8F3F22FC837FC00D911F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3F8F3FF2FC8386100D911F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -317,6 +428,16 @@
 			isa = PBXTargetDependency;
 			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
 			targetProxy = F37B55A62F0D283400242124 /* PBXContainerItemProxy */;
+		};
+		F3F8F3FB2FC837FC00D911F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
+			targetProxy = F3F8F3FA2FC837FC00D911F4 /* PBXContainerItemProxy */;
+		};
+		F3F8F4082FC8386100D911F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F37B55882F0D283200242124 /* SmartCosmeticBag */;
+			targetProxy = F3F8F4072FC8386100D911F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -588,10 +709,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.SmartCosmeticBagUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -608,16 +733,122 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5CA8RFTMHW;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.SmartCosmeticBagUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SmartCosmeticBag;
+			};
+			name = Release;
+		};
+		F3F8F3FD2FC837FC00D911F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5CA8RFTMHW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.CosmeticsRepositoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCosmeticBag.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartCosmeticBag";
+			};
+			name = Debug;
+		};
+		F3F8F3FE2FC837FC00D911F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5CA8RFTMHW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.CosmeticsRepositoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCosmeticBag.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartCosmeticBag";
+			};
+			name = Release;
+		};
+		F3F8F40A2FC8386100D911F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5CA8RFTMHW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.PhotoStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCosmeticBag.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartCosmeticBag";
+			};
+			name = Debug;
+		};
+		F3F8F40B2FC8386100D911F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5CA8RFTMHW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = DigitalMjollnir.PhotoStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartCosmeticBag.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartCosmeticBag";
 			};
 			name = Release;
 		};
@@ -660,16 +891,34 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		F3F8F3FC2FC837FC00D911F4 /* Build configuration list for PBXNativeTarget "CosmeticsRepositoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3F8F3FD2FC837FC00D911F4 /* Debug */,
+				F3F8F3FE2FC837FC00D911F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F3F8F4092FC8386100D911F4 /* Build configuration list for PBXNativeTarget "PhotoStorageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3F8F40A2FC8386100D911F4 /* Debug */,
+				F3F8F40B2FC8386100D911F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F36DED9B2F33943400C584AA /* XCLocalSwiftPackageReference "Modules/DataRepositoryModule" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Modules/DataRepositoryModule;
-		};
 		F36DEDA92F33A3AB00C584AA /* XCLocalSwiftPackageReference "Modules/CosmeticModule" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Modules/CosmeticModule;
+		};
+		F399C7092FC860D300F8D413 /* XCLocalSwiftPackageReference "Modules/CosmeticRepositoryModule" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Modules/CosmeticRepositoryModule;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -685,13 +934,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F36DEDAA2F33A3BD00C584AA /* CosmeticRepositoryModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CosmeticRepositoryModule;
-		};
 		F37B56FF2F14135100242124 /* CosmeticModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CosmeticModule;
+		};
+		F399C6E22FC8590900F8D413 /* CosmeticRepositoryModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F399C7092FC860D300F8D413 /* XCLocalSwiftPackageReference "Modules/CosmeticRepositoryModule" */;
+			productName = CosmeticRepositoryModule;
 		};
 		F3A127BD2F507F78000FB444 /* ProfilerKit */ = {
 			isa = XCSwiftPackageProductDependency;

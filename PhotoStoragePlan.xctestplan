@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "07157DE0-E9BE-43AF-84D4-9E39930E59C9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/PhotoStorage",
+        "identifier" : "PhotoStorageTests",
+        "name" : "PhotoStorageTests"
+      }
+    }
+  ],
+  "version" : 1
+}

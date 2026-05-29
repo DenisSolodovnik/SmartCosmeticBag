@@ -80,4 +80,48 @@ final class DetailEntityTests: XCTestCase {
             }
         }
     }
+
+    func testDetailPhotoChange() async throws {
+        let repository = CosmeticRepository(inMemory: true)
+        let categoryId = UUID()
+        let detailID1 = UUID()
+        let photos1: [PhotoId] = [
+            .init(id: UUID(), categoryId: categoryId),
+            .init(id: UUID(), categoryId: categoryId),
+            .init(id: UUID(), categoryId: categoryId)
+        ]
+        let photos2: [PhotoId] = [
+            .init(id: UUID(), categoryId: categoryId),
+            .init(id: photos1[1].id, categoryId: categoryId),
+            .init(id: photos1[2].id, categoryId: categoryId)
+        ]
+        let category = CategoryDTO.dummy(id: categoryId, name: "Помада")
+        let detail = ItemDetailDTO.dummy(
+            id: detailID1,
+            categoryId: categoryId,
+            name: "Name1",
+            photos: photos1
+        )
+        let summary = ItemSummaryDTO.dummy(
+            itemDetailId: detailID1,
+            categoryId: categoryId,
+            name: "Name1"
+        )
+
+        try await repository.createCategory(category)
+        try await repository.createItem(from: summary, and: detail, inCategory: category)
+
+        let detail1 = try await repository.loadItem(of: summary)
+        XCTAssert(detail1.photos.sorted(by: <) == photos1.sorted(by: <), "Photos should be equal")
+
+        var detail2 = ItemDetailDTO.dummy(
+            id: detail1.id,
+            categoryId: detail1.categoryId,
+            name: detail1.name,
+            photos: photos2
+        )
+        try await repository.saveItem(from: summary, and: detail2, inCategory: category)
+        detail2 = try await repository.loadItem(of: summary)
+        XCTAssert(detail2.photos.sorted(by: <) == photos2.sorted(by: <), "Photos should be equal")
+    }
 }

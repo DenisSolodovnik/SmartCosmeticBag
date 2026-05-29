@@ -49,13 +49,14 @@ extension ItemDetailDTO {
     static func dummy(
         id: UUID = UUID(),
         categoryId: UUID = UUID(),
-        name: String = "Name"
+        name: String = "Name",
+        photos: [PhotoId] = []
     ) -> ItemDetailDTO {
         .init(
             id: id,
             categoryId: categoryId,
             name: name,
-            photos: [],
+            photos: photos,
             expirationDate: Date(),
             paoDate: nil,
             purchaseDate: Date(),

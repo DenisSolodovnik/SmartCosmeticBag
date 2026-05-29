@@ -23,21 +23,6 @@ public final actor CosmeticRepository: Sendable {
         container = persistentController.container
     }
 
-    static func forceDeleteItems(forIds ids: [UUID], context: NSManagedObjectContext) throws {
-        let fetchItemsDelete = NSFetchRequest<NSFetchRequestResult>(
-            entityName: "ItemSummaryEntity"
-        )
-        fetchItemsDelete.predicate = NSPredicate(format: "id IN %@", ids)
-        let deleteItemsRequest = NSBatchDeleteRequest(fetchRequest: fetchItemsDelete)
-        deleteItemsRequest.resultType = .resultTypeObjectIDs
-
-        let itemsResult = try context.execute(deleteItemsRequest) as? NSBatchDeleteResult
-        if let deletedObjectIDs = itemsResult?.result as? [NSManagedObjectID] {
-            let changes = [NSDeletedObjectsKey: deletedObjectIDs]
-            NSManagedObjectContext.mergeChanges(fromRemoteContextSave: changes, into: [context])
-        }
-    }
-
     static func loadItems<Entity: NSManagedObject & IdentifiableEntity>(
         byIds ids: [UUID],
         from context: NSManagedObjectContext

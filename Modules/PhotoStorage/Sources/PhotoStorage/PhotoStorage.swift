@@ -78,7 +78,6 @@ public final actor PhotoStorage: IPhotoStorage {
         if let existingTask = await inFlightTasks.value(forKey: key, and: .save),
            case let .data(task) = existingTask {
             _ = try await task.value
-            return
         }
 
         let fileStorage = storage

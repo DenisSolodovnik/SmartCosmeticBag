@@ -154,19 +154,31 @@ extension CosmeticRepository: IItemDetailRepository {
             let entityPhotos = detailEntity.photoArray.compactMap(\.id)
 
             if itemPhotos != entityPhotos {
-                let p = Set(itemPhotos)
-                let dp = Set(entityPhotos)
+                let itemPhotoSet = Set(itemPhotos)
+                let entityPhotosSet = Set(entityPhotos)
 
-                let p1 = p.subtracting(dp)
-                let dp1 = dp.subtracting(p)
+                let photosToAppend = itemPhotoSet.subtracting(entityPhotosSet)
+                let photosToDelete = entityPhotosSet.subtracting(itemPhotoSet)
 
-                if !dp1.isEmpty {
-                    try CosmeticRepository.forceDeleteItems(forIds: dp1.map(\.self), context: context)
+                if !photosToDelete.isEmpty {
+                    let photosSet = detailEntity.mutableSetValue(forKey: "photos")
+                    let deletedPhotos = detailEntity.photoArray.filter { photo in
+                        guard let id = photo.id else {
+                            return false
+                        }
+
+                        return photosToDelete.contains(id)
+                    }
+
+                    for photo in deletedPhotos {
+                        photosSet.remove(photo)
+                        context.delete(photo)
+                    }
                 }
 
-                if !p1.isEmpty {
+                if !photosToAppend.isEmpty {
                     let photosSet = detailEntity.mutableSetValue(forKey: "photos")
-                    for id in p1 {
+                    for id in photosToAppend {
                         let photo = PhotoEntity(context: context)
                         photo.id = id
                         photosSet.add(photo)

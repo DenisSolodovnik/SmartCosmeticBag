@@ -19,7 +19,7 @@ final actor NoItemsDataPool: IItemSummaryRepository {
     func deleteItems(_ items: [ItemSummaryDTO], inCategory category: CategoryDTO) async throws {
     }
     
-    func createItem(from summary: DataRepositoryModule.ItemSummaryDTO, and detail: ItemDetailDTO, inCategory category: CategoryDTO) async throws {
+    func createItem(from summary: ItemSummaryDTO, and detail: ItemDetailDTO, inCategory category: CategoryDTO) async throws {
     }
     
     func saveItem(from summary: ItemSummaryDTO, and detail: ItemDetailDTO, inCategory category: CategoryDTO) async throws {

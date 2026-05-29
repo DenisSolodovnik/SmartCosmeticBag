@@ -5,7 +5,7 @@
 //  Created by Денис Солодовник on 28.05.2026.
 //
 
-import DataRepositoryModule
+import CosmeticRepositoryModule
 import Foundation
 
 final actor ThrowItemsDataPool: IItemSummaryRepository {

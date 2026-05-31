@@ -18,10 +18,10 @@ struct SortItemsUseCase {
     }
 
     func callAsFunction(
-        _ items: [CategoryItemModel],
-        by key: CategoryItemSortKey,
+        _ items: [SummaryItemModel],
+        by key: SummaryItemSortKey,
         order: ComparisonOrder
-    ) -> [CategoryItemModel] {
+    ) -> [SummaryItemModel] {
 
         switch key {
             case .bestBefore: getSorted(by: \.bestBeforeDate, order: order, items: items)
@@ -31,11 +31,11 @@ struct SortItemsUseCase {
     }
 
     private func getSorted(
-        by property: KeyPath<CategoryItemModel, some Comparable>,
+        by property: KeyPath<SummaryItemModel, some Comparable>,
         order: ComparisonOrder,
-        items: [CategoryItemModel],
+        items: [SummaryItemModel],
         postfix: String = ""
-    ) -> [CategoryItemModel] {
+    ) -> [SummaryItemModel] {
 
         if order == .orderedAscending {
             items.sorted { (lhs, rhs) -> Bool in lhs[keyPath: property] < rhs[keyPath: property] }
@@ -45,7 +45,7 @@ struct SortItemsUseCase {
     }
 }
 
-private extension CategoryItemModel {
+private extension SummaryItemModel {
 
     var nameForSort: String {
         "\(name)\(id.uuidString)"

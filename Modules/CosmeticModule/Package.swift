@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "DesignModule", path: "../DesignModule"),
-        .package(name: "DataRepositoryModule", path: "../DataRepositoryModule"),
+        .package(name: "CosmeticRepositoryModule", path: "../CosmeticRepositoryModule"),
         .package(url: "https://github.com/DenisSolodovnik/ProfilerKit.git", from: "1.0.0"),
         .package(name: "PhotoStorage", path: "../PhotoStorage")
     ],
@@ -22,7 +22,7 @@ let package = Package(
             name: "CosmeticModule",
             dependencies: [
                 "DesignModule",
-                .product(name: "CosmeticRepositoryModule", package: "DataRepositoryModule"),
+                .product(name: "CosmeticRepositoryModule", package: "CosmeticRepositoryModule"),
                 .product(name: "ProfilerKit", package: "ProfilerKit"),
                 .product(name: "PhotoStorage", package: "PhotoStorage")
             ]

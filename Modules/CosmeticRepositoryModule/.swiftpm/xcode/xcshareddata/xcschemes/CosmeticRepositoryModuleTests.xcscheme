@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2630"
+   LastUpgradeVersion = "2640"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PhotoStorage"
-               BuildableName = "PhotoStorage"
-               BlueprintName = "PhotoStorage"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -34,7 +18,10 @@
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:../../TestPlan.xctestplan">
+            reference = "container:../../CosmeticRepositoryModuleTests.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:../../CosmeticsRepository.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -42,9 +29,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "PhotoStorageTests"
-               BuildableName = "PhotoStorageTests"
-               BlueprintName = "PhotoStorageTests"
+               BlueprintIdentifier = "CosmeticRepositoryModuleTests"
+               BuildableName = "CosmeticRepositoryModuleTests"
+               BlueprintName = "CosmeticRepositoryModuleTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -59,7 +46,8 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES">
+      allowLocationSimulation = "YES"
+      queueDebuggingEnableBacktraceRecording = "Yes">
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,15 +55,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "PhotoStorage"
-            BuildableName = "PhotoStorage"
-            BlueprintName = "PhotoStorage"
-            ReferencedContainer = "container:">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

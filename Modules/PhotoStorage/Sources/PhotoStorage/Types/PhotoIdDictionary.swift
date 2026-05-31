@@ -43,7 +43,7 @@ final actor PhotoIdDictionary {
     func insert(
         _ value: TaskResult,
         forKey key: PhotoKey,
-        and operation: FileOperation,
+        and operation: FileOperation
     ) {
         storage[key, default: [:]][operation] = value
     }

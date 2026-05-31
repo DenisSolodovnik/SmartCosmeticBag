@@ -13,7 +13,7 @@ final class PhotoStorageTests: XCTestCase {
         let storage = try await createStorage()
 
         do {
-            try await save(by: key, storage.photoStorage)
+            try await PhotoStorageTests.save(by: key, storage.photoStorage)
         } catch let error as PhotoStorageError {
             XCTFail("\(error.description, default: "Save: Unknown error")")
             return
@@ -25,11 +25,51 @@ final class PhotoStorageTests: XCTestCase {
         try await delete(by: key, storage.photoStorage)
     }
 
+    func testSaveThreeShouldTestedManually() async throws {
+        let categoryId = UUID()
+        let imagesId = UUID()
+        let images = [
+            UIImage(systemName: "square.and.arrow.up")!,
+            UIImage(systemName: "square.and.arrow.up.fill")!,
+            UIImage(systemName: "square.and.arrow.up.circle")!
+        ]
+        let keys: [PhotoKey] = [
+            PhotoKey(id: imagesId, categoryId: categoryId),
+            PhotoKey(id: imagesId, categoryId: categoryId),
+            PhotoKey(id: imagesId, categoryId: categoryId)
+        ]
+
+        let storage: (photoStorage: any IPhotoStorage, storage: any ITestableStorage)
+        do {
+            storage = try await createStorage()
+        } catch {
+            print(error)
+            throw error
+        }
+
+        let photoStorage = storage.photoStorage
+
+        Task {
+            try await PhotoStorageTests.save(by: keys[0], photoStorage, image: images[0])
+        }
+        Task {
+            try await PhotoStorageTests.save(by: keys[1], photoStorage, image: images[1])
+        }
+        Task {
+            try await PhotoStorageTests.save(by: keys[2], photoStorage, image: images[2])
+        }
+
+        /// Should be tested manually by compare images by eye
+        let image = try await load(by: keys[2], storage.photoStorage)
+
+        try await delete(by: keys[0], storage.photoStorage)
+    }
+
     func testLoad() async throws {
         let key = PhotoKey(id: UUID(), categoryId: UUID())
         let storage = try await createStorage()
 
-        try await save(by: key, storage.photoStorage)
+        try await PhotoStorageTests.save(by: key, storage.photoStorage)
 
         do {
             _ = try await load(by: key, storage.photoStorage)
@@ -47,7 +87,7 @@ final class PhotoStorageTests: XCTestCase {
         let key = PhotoKey(id: UUID(), categoryId: categoryId)
         let storages = try await createStorage()
 
-        try await save(by: key, storages.photoStorage)
+        try await PhotoStorageTests.save(by: key, storages.photoStorage)
 
         await checkFilesCount(in: storages.storage, for: categoryId)
 
@@ -73,9 +113,9 @@ final class PhotoStorageTests: XCTestCase {
         let key3 = PhotoKey(id: UUID(), categoryId: categoryId2)
         let storages = try await createStorage()
 
-        try await save(by: key1, storages.photoStorage)
-        try await save(by: key2, storages.photoStorage)
-        try await save(by: key3, storages.photoStorage)
+        try await PhotoStorageTests.save(by: key1, storages.photoStorage)
+        try await PhotoStorageTests.save(by: key2, storages.photoStorage)
+        try await PhotoStorageTests.save(by: key3, storages.photoStorage)
 
         await checkFilesCount(in: storages.storage, for: categoryId1, mandatory: 2)
         await checkFilesCount(in: storages.storage, for: categoryId2, mandatory: 1)
@@ -115,8 +155,11 @@ final class PhotoStorageTests: XCTestCase {
         try await storage.getPhoto(for: key)
     }
 
-    private func save(by key: PhotoKey, _ storage: IPhotoStorage) async throws {
-        let image = UIImage(systemName: "arrow.2.circlepath.circle")!
+    private static func save(
+        by key: PhotoKey,
+        _ storage: IPhotoStorage,
+        image: UIImage = UIImage(systemName: "arrow.2.circlepath.circle")!
+    ) async throws {
         try await storage.setPhoto(image, for: key)
     }
 

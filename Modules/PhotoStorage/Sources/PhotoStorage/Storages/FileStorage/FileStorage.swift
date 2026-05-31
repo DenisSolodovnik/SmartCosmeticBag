@@ -97,10 +97,9 @@ final actor FileStorage: IStorage {
         let fileManager = FileManager.default
         let fileURL = key.fileURL(basePath)
 
-        if !fileManager.fileExists(atPath: fileURL.path) { return }
-
         let task = Task.detached(priority: .utility) {
             do {
+                if !fileManager.fileExists(atPath: fileURL.path) { return }
                 try fileManager.removeItem(at: fileURL)
             } catch {
                 throw PhotoStorageError.cannotDeleteFile(kind: .removeImage, path: fileURL, error: error)

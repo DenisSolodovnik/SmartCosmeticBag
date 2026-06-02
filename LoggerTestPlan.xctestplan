@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8DCDAE60-3B0A-47D3-B67D-82BC87FB6D3A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/LoggerModule",
+        "identifier" : "LoggerModuleTests",
+        "name" : "LoggerModuleTests"
+      }
+    }
+  ],
+  "version" : 1
+}

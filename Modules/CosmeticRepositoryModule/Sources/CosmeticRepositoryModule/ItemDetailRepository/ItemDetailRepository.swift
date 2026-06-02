@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import LoggerModule
 
 public protocol IItemDetailRepository: Sendable {
 
@@ -81,6 +82,7 @@ extension CosmeticRepository: IItemDetailRepository {
                     )
                 }
             } catch {
+                EventLogger.instance.reportError(error: error, onFailure: nil)
                 throw DataRepositoryError.itemCorrupted(
                     name: summary.name,
                     error: error

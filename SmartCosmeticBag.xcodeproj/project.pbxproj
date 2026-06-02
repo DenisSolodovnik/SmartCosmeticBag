@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */ = {isa = PBXBuildFile; productRef = F37B56FF2F14135100242124 /* CosmeticModule */; };
 		F399C6E32FC8590900F8D413 /* CosmeticRepositoryModule in Frameworks */ = {isa = PBXBuildFile; productRef = F399C6E22FC8590900F8D413 /* CosmeticRepositoryModule */; };
+		F399C73B2FCC803000F8D413 /* AppMetricaAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F399C73A2FCC803000F8D413 /* AppMetricaAnalytics */; };
+		F399C73D2FCC803000F8D413 /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; productRef = F399C73C2FCC803000F8D413 /* AppMetricaCore */; };
+		F399C73F2FCC803000F8D413 /* AppMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = F399C73E2FCC803000F8D413 /* AppMetricaCrashes */; };
+		F399C7412FCC803000F8D413 /* AppMetricaIDSync in Frameworks */ = {isa = PBXBuildFile; productRef = F399C7402FCC803000F8D413 /* AppMetricaIDSync */; };
+		F399C7432FCC803000F8D413 /* AppMetricaLibraryAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = F399C7422FCC803000F8D413 /* AppMetricaLibraryAdapter */; };
+		F399C7452FCC803000F8D413 /* AppMetricaScreenshot in Frameworks */ = {isa = PBXBuildFile; productRef = F399C7442FCC803000F8D413 /* AppMetricaScreenshot */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,8 @@
 		F37B56E32F1401D300242124 /* AppConfigurationModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AppConfigurationModule; path = Modules/AppConfigurationModule; sourceTree = "<group>"; };
 		F37B57012F14179A00242124 /* DesignModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DesignModule; path = Modules/DesignModule; sourceTree = "<group>"; };
 		F399C7082FC85F7900F8D413 /* CosmeticRepositoryModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CosmeticRepositoryModule; path = Modules/CosmeticRepositoryModule; sourceTree = "<group>"; };
+		F399C7462FCC828400F8D413 /* LoggerModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoggerModule; path = Modules/LoggerModule; sourceTree = "<group>"; };
+		F399C7472FCDEBB400F8D413 /* LoggerTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LoggerTestPlan.xctestplan; sourceTree = "<group>"; };
 		F3A127CB2F51A4B7000FB444 /* PhotoStorage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PhotoStorage; path = Modules/PhotoStorage; sourceTree = "<group>"; };
 		F3F8F3F62FC837FC00D911F4 /* CosmeticsRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CosmeticsRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F8F4032FC8386100D911F4 /* PhotoStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,8 +109,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F399C7452FCC803000F8D413 /* AppMetricaScreenshot in Frameworks */,
 				F399C6E32FC8590900F8D413 /* CosmeticRepositoryModule in Frameworks */,
+				F399C7432FCC803000F8D413 /* AppMetricaLibraryAdapter in Frameworks */,
+				F399C73F2FCC803000F8D413 /* AppMetricaCrashes in Frameworks */,
+				F399C73D2FCC803000F8D413 /* AppMetricaCore in Frameworks */,
 				F36DED842F3393F400C584AA /* CosmeticModule in Frameworks */,
+				F399C7412FCC803000F8D413 /* AppMetricaIDSync in Frameworks */,
+				F399C73B2FCC803000F8D413 /* AppMetricaAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +154,8 @@
 		F37B55802F0D283200242124 = {
 			isa = PBXGroup;
 			children = (
+				F399C7472FCDEBB400F8D413 /* LoggerTestPlan.xctestplan */,
+				F399C7462FCC828400F8D413 /* LoggerModule */,
 				F399C7082FC85F7900F8D413 /* CosmeticRepositoryModule */,
 				F37B56E32F1401D300242124 /* AppConfigurationModule */,
 				F37B57012F14179A00242124 /* DesignModule */,
@@ -194,10 +210,16 @@
 				F37B56F72F140CE600242124 /* SmartCosmeticBag */,
 			);
 			name = SmartCosmeticBag;
-				packageProductDependencies = (
-					F37B56FF2F14135100242124 /* CosmeticModule */,
-					F399C6E22FC8590900F8D413 /* CosmeticRepositoryModule */,
-				);
+			packageProductDependencies = (
+				F37B56FF2F14135100242124 /* CosmeticModule */,
+				F399C6E22FC8590900F8D413 /* CosmeticRepositoryModule */,
+				F399C73A2FCC803000F8D413 /* AppMetricaAnalytics */,
+				F399C73C2FCC803000F8D413 /* AppMetricaCore */,
+				F399C73E2FCC803000F8D413 /* AppMetricaCrashes */,
+				F399C7402FCC803000F8D413 /* AppMetricaIDSync */,
+				F399C7422FCC803000F8D413 /* AppMetricaLibraryAdapter */,
+				F399C7442FCC803000F8D413 /* AppMetricaScreenshot */,
+			);
 			productName = SmartCosmeticBag;
 			productReference = F37B55892F0D283200242124 /* SmartCosmeticBag.app */;
 			productType = "com.apple.product-type.application";
@@ -327,6 +349,7 @@
 				F36DEDA92F33A3AB00C584AA /* XCLocalSwiftPackageReference "Modules/CosmeticModule" */,
 				F399C7092FC860D300F8D413 /* XCLocalSwiftPackageReference "Modules/CosmeticRepositoryModule" */,
 				F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */,
+				F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F37B558A2F0D283200242124 /* Products */;
@@ -923,6 +946,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appmetrica/appmetrica-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
 		F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/DenisSolodovnik/ProfilerKit.git";
@@ -943,10 +974,35 @@
 			package = F399C7092FC860D300F8D413 /* XCLocalSwiftPackageReference "Modules/CosmeticRepositoryModule" */;
 			productName = CosmeticRepositoryModule;
 		};
-		F3A127BD2F507F78000FB444 /* ProfilerKit */ = {
+		F399C73A2FCC803000F8D413 /* AppMetricaAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F3A127BC2F507F78000FB444 /* XCRemoteSwiftPackageReference "ProfilerKit" */;
-			productName = ProfilerKit;
+			package = F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaAnalytics;
+		};
+		F399C73C2FCC803000F8D413 /* AppMetricaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaCore;
+		};
+		F399C73E2FCC803000F8D413 /* AppMetricaCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaCrashes;
+		};
+		F399C7402FCC803000F8D413 /* AppMetricaIDSync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaIDSync;
+		};
+		F399C7422FCC803000F8D413 /* AppMetricaLibraryAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaLibraryAdapter;
+		};
+		F399C7442FCC803000F8D413 /* AppMetricaScreenshot */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F399C7392FCC803000F8D413 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaScreenshot;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

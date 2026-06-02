@@ -11,7 +11,7 @@ public enum CosmeticScreens {
 
     case categoriesList
     case createCategory
-    case categoryItems
-    case addCategoryItem
-    case categoryItemView
+    case itemsSummary
+    case addItem
+    case itemSummaryView
 }

@@ -49,14 +49,18 @@ final class PhotoStorageTests: XCTestCase {
 
         let photoStorage = storage.photoStorage
 
-        Task {
-            try await PhotoStorageTests.save(by: keys[0], photoStorage, image: images[0])
-        }
-        Task {
-            try await PhotoStorageTests.save(by: keys[1], photoStorage, image: images[1])
-        }
-        Task {
-            try await PhotoStorageTests.save(by: keys[2], photoStorage, image: images[2])
+        try await withThrowingTaskGroup { group in
+            for index in 0..<keys.count {
+                group.addTask {
+                    try await PhotoStorageTests.save(
+                        by: keys[index],
+                        photoStorage,
+                        image: images[index]
+                    )
+                }
+            }
+
+            try await group.waitForAll()
         }
 
         /// Should be tested manually by compare images by eye

@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import LoggerModule
 
 private enum Constants {
 
@@ -57,6 +58,7 @@ public struct CoreRepository: Sendable {
                 do {
                     try context.save()
                 } catch {
+                    EventLogger.instance.reportError(error: error)
                     throw DataRepositoryError.saveError(error)
                 }
             }

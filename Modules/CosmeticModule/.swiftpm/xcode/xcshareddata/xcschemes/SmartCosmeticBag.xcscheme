@@ -39,6 +39,9 @@
          <TestPlanReference
             reference = "container:../../PhotoStoragePlan.xctestplan">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:../../LoggerTestPlan.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference

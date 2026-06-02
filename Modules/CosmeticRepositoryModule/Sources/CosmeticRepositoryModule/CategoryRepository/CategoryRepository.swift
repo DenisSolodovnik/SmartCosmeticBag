@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import LoggerModule
 
 public protocol ICategoryRepository: Actor {
 
@@ -25,6 +26,7 @@ extension CosmeticRepository: ICategoryRepository {
             do {
                 categories = try context.fetch(request)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 assertionFailure("Не получилось загрузить категории")
                 throw DataRepositoryError.categoriesCorrupted(category: nil, error: error)
             }
@@ -77,6 +79,7 @@ extension CosmeticRepository: ICategoryRepository {
                         )
                 }
             } catch {
+                EventLogger.instance.reportError(error: error)
                 throw DataRepositoryError
                     .inputDataCorrupted(
                         error: .creation(name: "Такая категория уже существует \(category.name)")
@@ -107,6 +110,7 @@ extension CosmeticRepository: ICategoryRepository {
                     )
                 }
             } catch {
+                EventLogger.instance.reportError(error: error)
                 assertionFailure("Не получилось загрузить категорию \(category.name)")
                 throw DataRepositoryError.categoriesCorrupted(
                     category: category.name,
@@ -132,6 +136,7 @@ extension CosmeticRepository: ICategoryRepository {
                     return
                 }
             } catch {
+                EventLogger.instance.reportError(error: error)
                 assertionFailure("Не получилось загрузить категорию \(category.name)")
                 throw DataRepositoryError.categoriesCorrupted(category: category.name, error: error)
             }

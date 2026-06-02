@@ -7,6 +7,7 @@
 
 import UIKit
 import ImageIO
+import LoggerModule
 
 public protocol IStorage: Actor {
 
@@ -45,12 +46,14 @@ final actor FileStorage: IStorage {
                 create: true
             ).appendingPathComponent("PhotoStorage", isDirectory: true)
         } catch {
+            EventLogger.instance.reportError(error: error)
             throw PhotoStorageError.cannotCreateDirectory(kind: .fileSystem, error: error)
         }
 
         do {
             try fileManager.createDirectory(at: basePath, withIntermediateDirectories: true)
         } catch {
+            EventLogger.instance.reportError(error: error)
             throw PhotoStorageError.cannotCreateDirectory(
                 kind: .fileSystem,
                 path: basePath,
@@ -68,6 +71,7 @@ final actor FileStorage: IStorage {
             do {
                 return try Data(contentsOf: fileURL, options: [.mappedIfSafe])
             } catch {
+                EventLogger.instance.reportError(error: error)
                 if FileManager.default.fileExists(atPath: fileURL.path) == false {
                     throw PhotoStorageError.fileNotFound(kind: .loadImage, path: fileURL, error: error)
                 } else {
@@ -102,6 +106,7 @@ final actor FileStorage: IStorage {
                 if !fileManager.fileExists(atPath: fileURL.path) { return }
                 try fileManager.removeItem(at: fileURL)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 throw PhotoStorageError.cannotDeleteFile(kind: .removeImage, path: fileURL, error: error)
             }
         }
@@ -128,6 +133,7 @@ final actor FileStorage: IStorage {
             do {
                 try FileManager.default.removeItem(atPath: path.path)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 throw PhotoStorageError
                     .cannotDeleteDirectory(kind: .removeAllImages, path: path, error: error)
             }
@@ -151,6 +157,7 @@ final actor FileStorage: IStorage {
             do {
                 try fileManager.removeItem(atPath: path.path)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 throw PhotoStorageError
                     .cannotDeleteDirectory(kind: .removeAllImages, path: path, error: error)
             }
@@ -175,6 +182,7 @@ private extension FileStorage {
                     withIntermediateDirectories: true
                 )
             } catch {
+                EventLogger.instance.reportError(error: error)
                 throw PhotoStorageError
                     .cannotCreateDirectory(kind: .saveImage, path: fileURL, error: error)
             }
@@ -182,6 +190,7 @@ private extension FileStorage {
             do {
                 try data.write(to: fileURL, options: .atomic)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 throw PhotoStorageError
                     .cannotWriteFile(kind: .saveImage, path: fileURL, error: error)
             }
@@ -198,6 +207,7 @@ private extension FileStorage {
         do {
             try _path.setResourceValues(resourceValues)
         } catch {
+            EventLogger.instance.reportError(error: error)
             print("PhotoStorage: Exclude from backup failed: ", error)
         }
     }

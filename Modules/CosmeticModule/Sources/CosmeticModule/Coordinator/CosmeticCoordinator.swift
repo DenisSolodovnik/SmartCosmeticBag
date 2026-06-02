@@ -5,9 +5,10 @@
 //  Created by Денис Солодовник on 09.01.2026.
 //
 
-import SwiftUI
 import CosmeticRepositoryModule
+import LoggerModule
 import PhotoStorage
+import SwiftUI
 
 @MainActor
 public final class CosmeticCoordinator: ObservableObject {
@@ -41,13 +42,13 @@ public final class CosmeticCoordinator: ObservableObject {
             case .createCategory:
                 EmptyView()
 
-            case .categoryItems:
+            case .itemsSummary:
                 categoryItemsScreen()
 
-            case .addCategoryItem:
+            case .addItem:
                 EmptyView()
 
-            case .categoryItemView:
+            case .itemSummaryView:
                 EmptyView()
         }
     }
@@ -58,7 +59,7 @@ public final class CosmeticCoordinator: ObservableObject {
 private extension CosmeticCoordinator {
 
     func categoryItemsScreen() -> some View {
-        SummaryItemsAssembly().assembly(
+        ItemsSummaryAssembly().assembly(
             itemsRepository: cosmeticRepository,
             photoStorage: photoStorage
         )

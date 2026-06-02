@@ -12,9 +12,15 @@ let package = Package(
             targets: ["PhotoStorage"]
         ),
     ],
+    dependencies: [
+        .package(name: "LoggerModule", path: "../LoggerModule")
+    ],
     targets: [
         .target(
-            name: "PhotoStorage"
+            name: "PhotoStorage",
+            dependencies: [
+                "LoggerModule"
+            ]
         ),
         .testTarget(
             name: "PhotoStorageTests",

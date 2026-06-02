@@ -7,6 +7,7 @@
 
 import CoreData
 import Foundation
+import LoggerModule
 
 public protocol IItemSummaryRepository: Actor {
 
@@ -39,6 +40,7 @@ extension CosmeticRepository: IItemSummaryRepository {
             do {
                 items = try context.fetch(request)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 assertionFailure("Такой категории не существует \(category.name)")
                 throw DataRepositoryError.categoryItemsCorrupted(category: category.name, error: error)
             }
@@ -61,28 +63,14 @@ extension CosmeticRepository: IItemSummaryRepository {
             do {
                 items = try CosmeticRepository.loadItems(byIds: ids, from: context)
             } catch {
+                EventLogger.instance.reportError(error: error)
                 assertionFailure("Таких продуктов не существует \(ids)")
                 throw DataRepositoryError.inputDataCorrupted(
                     error: .existence(name: "Таких продуктов не существует \(ids)")
                 )
             }
 
-            if items.isEmpty {
-                assertionFailure("Таких продуктов не существует \(ids)")
-                throw DataRepositoryError.inputDataCorrupted(
-                    error: .existence(name: "Таких продуктов не существует \(ids)")
-                )
-            }
-
-            return items.compactMap { (item) -> ItemSummaryDTO? in
-                guard item.id != nil,
-                      item.category?.id != nil else {
-                    assertionFailure("Отсутствует идентификатор товара\(item.name, default: "")")
-                    return nil
-                }
-
-                return .init(from: item)
-            }
+            return items.compactMap { (item) -> ItemSummaryDTO? in .init(from: item) }
         }
     }
 

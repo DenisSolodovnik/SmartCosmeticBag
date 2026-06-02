@@ -14,10 +14,15 @@ let package = Package(
             targets: ["CosmeticRepositoryModule"]
         )
     ],
+    dependencies: [
+        .package(name: "LoggerModule", path: "../LoggerModule")
+    ],
     targets: [
         .target(
             name: "CosmeticRepositoryModule",
-            dependencies: [],
+            dependencies: [
+                "LoggerModule"
+            ],
             resources: [
                 .process("Resources/CosmeticsCatalog.xcdatamodeld")
             ]
